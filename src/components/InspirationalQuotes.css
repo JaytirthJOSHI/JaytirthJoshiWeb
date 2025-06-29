@@ -1,0 +1,359 @@
+.inspirational-quotes-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.inspirational-quotes-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" width="50" height="50" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="0.5" fill="%2364ffda" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>');
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.quotes-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.quotes-header h2 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #64ffda;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.quotes-header p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #8892b0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.quote-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.quote-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  border-radius: 20px;
+  padding: 3rem 2rem 2rem;
+  position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.quote-card:hover {
+  border-color: rgba(100, 255, 218, 0.3);
+  box-shadow: 0 20px 40px rgba(100, 255, 218, 0.1);
+  transform: translateY(-5px);
+}
+
+.quote-card.loading {
+  opacity: 0.7;
+  transform: scale(0.98);
+}
+
+.quote-icon {
+  position: absolute;
+  color: #64ffda;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.quote-icon.top {
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 2rem;
+}
+
+.quote-icon.bottom {
+  bottom: 1.5rem;
+  right: 2rem;
+  font-size: 1.5rem;
+}
+
+.quote-card:hover .quote-icon {
+  opacity: 0.6;
+  transform: scale(1.1);
+}
+
+.quote-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #e6f1ff;
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-weight: 500;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quote-author h4 {
+  color: #64ffda;
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.category-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  opacity: 0.9;
+}
+
+.refresh-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+  color: #64ffda;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.refresh-button:hover:not(:disabled) {
+  background: rgba(100, 255, 218, 0.2);
+  border-color: rgba(100, 255, 218, 0.4);
+  transform: scale(1.1);
+}
+
+.refresh-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinning {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.quotes-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.quotes-footer p {
+  color: #8892b0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.quotes-footer strong {
+  color: #64ffda;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quote-card {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .inspirational-quotes-section {
+    padding: 2rem 0;
+  }
+  
+  .quote-card {
+    padding: 2rem 1.5rem 1.5rem;
+    min-height: 180px;
+  }
+  
+  .quote-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  .quote-icon.top {
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .quote-icon.bottom {
+    bottom: 1rem;
+    right: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .refresh-button {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .quote-card:hover {
+    transform: none;
+  }
+  
+  .refresh-button:hover {
+    transform: none;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .quote-card,
+  .refresh-button,
+  .quote-icon {
+    transition: none;
+  }
+  
+  .quote-card:hover {
+    transform: none;
+  }
+  
+  .refresh-button:hover {
+    transform: none;
+  }
+  
+  .spinning {
+    animation: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

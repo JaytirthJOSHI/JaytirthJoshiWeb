@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { FaMagic, FaBars, FaTimes } from 'react-icons/fa';
 import './HomePage.css';
 import SocialLinks from '../components/SocialLinks';
+import JaysNews from '../components/JaysNews';
+import InspirationalQuotes from '../components/InspirationalQuotes';
 import profileSuitImage from '../assets/Images/jaytirth-joshi-professional-headshot.png';
 import profileCasualImage from '../assets/Images/jaytirth-joshi-casual-portrait.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
@@ -280,6 +282,8 @@ const MobileNavigation: React.FC = () => {
         <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">{t('contact.title')}</button>
         <Link to="/portfolio" onClick={closeNav} className="mobile-nav-link">Portfolio</Link>
         <Link to="/contact" onClick={closeNav} className="mobile-nav-link">Contact</Link>
+        <button onClick={() => scrollToSection('jays-news')} className="mobile-nav-link">Jay's News</button>
+        <button onClick={() => scrollToSection('inspirational-quotes')} className="mobile-nav-link">Inspiration</button>
       </nav>
     </>
   );
@@ -484,6 +488,10 @@ const HomePage: React.FC = () => {
             <p><a href="https://www.linkedin.com/in/jaytirthjoshi" target="_blank" rel="noopener noreferrer">linkedin.com/in/jaytirthjoshi</a></p>
           </section>
         </Slide>
+
+        <InspirationalQuotes />
+        
+        <JaysNews />
 
         <Slide direction="up" triggerOnce>
           <section id="footer" className={`profile-section footer-section ${getAnimationClass('footer', 'scroll-animate')}`}>
