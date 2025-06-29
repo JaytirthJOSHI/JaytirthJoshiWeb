@@ -484,6 +484,15 @@ const HomePage: React.FC = () => {
             <p><a href="https://www.linkedin.com/in/jaytirthjoshi" target="_blank" rel="noopener noreferrer">linkedin.com/in/jaytirthjoshi</a></p>
           </section>
         </Slide>
+
+        <Slide direction="up" triggerOnce>
+          <section id="footer" className={`profile-section footer-section ${getAnimationClass('footer', 'scroll-animate')}`}>
+            <div className="footer-card">
+              <p>&copy; 2025 Jaytirth Joshi. All rights reserved.</p>
+              <p>Built with ❤️ using React & TypeScript</p>
+            </div>
+          </section>
+        </Slide>
       </main>
     </div>
   );
