@@ -8,7 +8,8 @@ import { useTranslation } from 'react-i18next';
 import { FaMagic, FaBars, FaTimes } from 'react-icons/fa';
 import './HomePage.css';
 import SocialLinks from '../components/SocialLinks';
-import LinkedInData from '../components/LinkedInData';
+import GitHubStats from '../components/GitHubStats';
+import '../components/GitHubStats.css';
 import profileSuitImage from '../assets/Images/jaytirth-joshi-professional-headshot.png';
 import profileCasualImage from '../assets/Images/jaytirth-joshi-casual-portrait.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
@@ -271,17 +272,17 @@ const MobileNavigation: React.FC = () => {
       </button>
       
       <nav className={`mobile-nav ${isOpen ? 'active' : ''}`}>
-        <a onClick={() => scrollToSection('summary')}>{t('summary.title')}</a>
-        <a onClick={() => scrollToSection('experience')}>{t('experience.title')}</a>
-        <a onClick={() => scrollToSection('education')}>{t('education.title')}</a>
-        <a onClick={() => scrollToSection('skills')}>{t('skills.title')}</a>
-        <a onClick={() => scrollToSection('languages')}>{t('languages.title')}</a>
-        <a onClick={() => scrollToSection('certifications')}>{t('certifications.title')}</a>
-        <a onClick={() => scrollToSection('patents')}>{t('patents.title')}</a>
-        <a onClick={() => scrollToSection('contact')}>{t('contact.title')}</a>
-        <a onClick={() => scrollToSection('linkedin')}>Professional Profile</a>
-        <Link to="/portfolio" onClick={closeNav}>Portfolio</Link>
-        <Link to="/contact" onClick={closeNav}>Contact</Link>
+        <button onClick={() => scrollToSection('summary')} className="mobile-nav-link">{t('summary.title')}</button>
+        <button onClick={() => scrollToSection('experience')} className="mobile-nav-link">{t('experience.title')}</button>
+        <button onClick={() => scrollToSection('education')} className="mobile-nav-link">{t('education.title')}</button>
+        <button onClick={() => scrollToSection('skills')} className="mobile-nav-link">{t('skills.title')}</button>
+        <button onClick={() => scrollToSection('languages')} className="mobile-nav-link">{t('languages.title')}</button>
+        <button onClick={() => scrollToSection('certifications')} className="mobile-nav-link">{t('certifications.title')}</button>
+        <button onClick={() => scrollToSection('patents')} className="mobile-nav-link">{t('patents.title')}</button>
+        <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">{t('contact.title')}</button>
+        <button onClick={() => scrollToSection('github')} className="mobile-nav-link">GitHub</button>
+        <Link to="/portfolio" onClick={closeNav} className="mobile-nav-link">Portfolio</Link>
+        <Link to="/contact" onClick={closeNav} className="mobile-nav-link">Contact</Link>
       </nav>
     </>
   );
@@ -488,9 +489,8 @@ const HomePage: React.FC = () => {
         </Slide>
 
         <Slide direction="up" triggerOnce>
-          <section id="linkedin" className={`profile-section ${getAnimationClass('linkedin', 'scroll-animate')}`}>
-            <h2>Professional Profile</h2>
-            <LinkedInData />
+          <section id="github" className={`profile-section ${getAnimationClass('github', 'scroll-animate')}`}>
+            <GitHubStats />
           </section>
         </Slide>
       </main>
