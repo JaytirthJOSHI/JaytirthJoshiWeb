@@ -63,4 +63,96 @@
 .form-group input {
   width: 100%;
   padding: 10px;
+}
+
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-buttons .cta-button {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: transparent;
+  color: #64ffda;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid #64ffda;
+  font-size: 1.1em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-buttons .cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.contact-buttons .cta-button:hover::before {
+  left: 100%;
+}
+
+.contact-buttons .cta-button:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+}
+
+.contact-buttons .cta-button:active {
+  transform: translateY(0);
+}
+
+.book-call-button {
+  background-color: rgba(100, 255, 218, 0.1) !important;
+  border-color: #7fffd4 !important;
+  color: #7fffd4 !important;
+}
+
+.book-call-button:hover {
+  background-color: rgba(100, 255, 218, 0.2) !important;
+  border-color: #7fffd4 !important;
+  color: #7fffd4 !important;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 60px 15px;
+  }
+  
+  .contact-container h1 {
+    font-size: 2.5em;
+  }
+  
+  .contact-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .contact-buttons .cta-button {
+    width: 100%;
+    max-width: 250px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container h1 {
+    font-size: 2em;
+  }
+  
+  .contact-buttons .cta-button {
+    padding: 12px 25px;
+    font-size: 1em;
+  }
 } 

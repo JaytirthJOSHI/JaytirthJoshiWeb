@@ -1,14 +1,145 @@
-import React, { useCallback, useState, Suspense } from 'react';
+import React, { useCallback, useState, Suspense, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Particles from "react-tsparticles";
-import type { Engine } from "tsparticles-engine";
+import type { Engine, ISourceOptions } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim"; 
 import { Fade, Slide } from 'react-awesome-reveal';
 import { useTranslation } from 'react-i18next';
+import { FaMagic, FaBars, FaTimes } from 'react-icons/fa';
 import './HomePage.css';
-import profileSuitImage from '../assets/Images/profile-suit.png';
-import profileCasualImage from '../assets/Images/profile-casual.jpeg';
+import SocialLinks from '../components/SocialLinks';
+import profileSuitImage from '../assets/Images/jaytirth-joshi-professional-headshot.png';
+import profileCasualImage from '../assets/Images/jaytirth-joshi-casual-portrait.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
+
+const repulsiveOptions: ISourceOptions = {
+  background: {
+    color: {
+      value: "#0a192f",
+    },
+  },
+  fpsLimit: 120,
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "repulse",
+      },
+      resize: true,
+    },
+    modes: {
+      repulse: {
+        distance: 100,
+        duration: 0.4,
+      },
+    },
+  },
+  particles: {
+    color: {
+      value: "#ffffff",
+    },
+    links: {
+      color: "#ffffff",
+      distance: 150,
+      enable: true,
+      opacity: 0.2,
+      width: 1,
+    },
+    move: {
+      direction: "none",
+      enable: true,
+      outModes: {
+        default: "bounce",
+      },
+      random: false,
+      speed: 1,
+      straight: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800,
+      },
+      value: 80,
+    },
+    opacity: {
+      value: 0.2,
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      value: { min: 1, max: 3 },
+    },
+  },
+  detectRetina: true,
+};
+
+const grabOptions: ISourceOptions = {
+  background: {
+    color: {
+      value: "#0a192f",
+    },
+  },
+  fpsLimit: 60,
+  interactivity: {
+    events: {
+      onHover: {
+        enable: true,
+        mode: "grab",
+      },
+      onClick: {
+        enable: true,
+        mode: "push",
+      },
+      resize: true,
+    },
+    modes: {
+      grab: {
+        distance: 140,
+        links: {
+          opacity: 1,
+        },
+      },
+      push: {
+        quantity: 4,
+      },
+    },
+  },
+  particles: {
+    color: {
+      value: "#ff4136",
+    },
+    links: {
+      color: "#ffffff",
+      distance: 150,
+      enable: true,
+      opacity: 0.4,
+      width: 1,
+    },
+    move: {
+      enable: true,
+      speed: 1,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 800,
+      },
+      value: 80,
+    },
+    opacity: {
+      value: 0.5,
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      value: { min: 1, max: 5 },
+    },
+  },
+  detectRetina: true,
+};
 
 // Data arrays for your profile
 const experienceData = [
@@ -96,22 +227,99 @@ const certificationsData = [
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const changeLanguage = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(e.target.value);
   };
 
   return (
     <div className="language-switcher">
-      <button onClick={() => changeLanguage('en')}>English</button>
-      <button onClick={() => changeLanguage('es')}>Español</button>
+      <select onChange={changeLanguage} defaultValue={i18n.language}>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="hi">हिन्दी</option>
+        <option value="zh">中文</option>
+      </select>
     </div>
   );
+};
+
+const MobileNavigation: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation();
+
+  const toggleNav = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeNav = () => {
+    setIsOpen(false);
+  };
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    closeNav();
+  };
+
+  return (
+    <>
+      <button className="mobile-nav-toggle" onClick={toggleNav}>
+        {isOpen ? <FaTimes /> : <FaBars />}
+      </button>
+      
+      <nav className={`mobile-nav ${isOpen ? 'active' : ''}`}>
+        <button onClick={() => scrollToSection('summary')} className="mobile-nav-link">{t('summary.title')}</button>
+        <button onClick={() => scrollToSection('experience')} className="mobile-nav-link">{t('experience.title')}</button>
+        <button onClick={() => scrollToSection('education')} className="mobile-nav-link">{t('education.title')}</button>
+        <button onClick={() => scrollToSection('skills')} className="mobile-nav-link">{t('skills.title')}</button>
+        <button onClick={() => scrollToSection('languages')} className="mobile-nav-link">{t('languages.title')}</button>
+        <button onClick={() => scrollToSection('certifications')} className="mobile-nav-link">{t('certifications.title')}</button>
+        <button onClick={() => scrollToSection('patents')} className="mobile-nav-link">{t('patents.title')}</button>
+        <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">{t('contact.title')}</button>
+        <Link to="/portfolio" onClick={closeNav} className="mobile-nav-link">Portfolio</Link>
+        <Link to="/contact" onClick={closeNav} className="mobile-nav-link">Contact</Link>
+      </nav>
+    </>
+  );
+};
+
+// Custom hook for scroll animations
+const useScrollAnimation = () => {
+  const [animatedElements, setAnimatedElements] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            setAnimatedElements(prev => new Set(prev).add(id));
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    );
+
+    const elements = document.querySelectorAll('.scroll-animate, .scroll-animate-left, .scroll-animate-right');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return animatedElements;
 };
 
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
   const [isProfessional, setIsProfessional] = useState(true);
+  const [particleOptions, setParticleOptions] = useState<ISourceOptions>(repulsiveOptions);
+  const animatedElements = useScrollAnimation();
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
@@ -121,75 +329,31 @@ const HomePage: React.FC = () => {
     setExpandedJob(expandedJob === index ? null : index);
   };
 
+  const handleParticleStyleChange = () => {
+    setParticleOptions(currentOptions =>
+      currentOptions.interactivity?.events?.onHover?.mode === 'grab'
+        ? repulsiveOptions
+        : grabOptions
+    );
+  };
+
+  const getAnimationClass = (elementId: string, baseClass: string) => {
+    return `${baseClass} ${animatedElements.has(elementId) ? 'animate' : ''}`;
+  };
+
   return (
     <div className="page-wrapper">
+      <SocialLinks />
+      <MobileNavigation />
       <LanguageSwitcher />
+      <div className="background-switcher">
+        <button onClick={handleParticleStyleChange}><FaMagic /></button>
+      </div>
       <section className="hero-section">
         <Particles
           id="tsparticles"
           init={particlesInit}
-          options={{
-            background: {
-              color: {
-                value: "#0a192f",
-              },
-            },
-            fpsLimit: 120,
-            interactivity: {
-              events: {
-                onHover: {
-                  enable: true,
-                  mode: "repulse",
-                },
-                resize: true,
-              },
-              modes: {
-                repulse: {
-                  distance: 100,
-                  duration: 0.4,
-                },
-              },
-            },
-            particles: {
-              color: {
-                value: "#ffffff",
-              },
-              links: {
-                color: "#ffffff",
-                distance: 150,
-                enable: true,
-                opacity: 0.2,
-                width: 1,
-              },
-              move: {
-                direction: "none",
-                enable: true,
-                outModes: {
-                  default: "bounce",
-                },
-                random: false,
-                speed: 1,
-                straight: false,
-              },
-              number: {
-                density: {
-                  enable: true,
-                  area: 800,
-                },
-                value: 80,
-              },
-              opacity: {
-                value: 0.2,
-              },
-              shape: {
-                type: "circle",
-              },
-              size: {
-                value: { min: 1, max: 3 },
-              },
-            },
-            detectRetina: true,
-          }}
+          options={particleOptions}
         />
         <div className="content-overlay">
           <Fade direction="down" triggerOnce>
@@ -200,6 +364,7 @@ const HomePage: React.FC = () => {
             <p className="tagline">{t('hero.tagline')}</p>
             <div className="cta-buttons">
               <a href="#summary" className="cta-button">{t('hero.cta')}</a>
+              <a href="#contact" className="cta-button">Contact Me</a>
             </div>
           </Slide>
         </div>
@@ -207,9 +372,14 @@ const HomePage: React.FC = () => {
 
       <main className="profile-container">
         <Slide direction="up" triggerOnce>
-          <section id="summary" className="profile-section with-image">
+          <section id="summary" className={`profile-section with-image ${getAnimationClass('summary', 'scroll-animate')}`}>
             <div className="profile-image-container">
-              <img src={isProfessional ? profileSuitImage : profileCasualImage} alt="Jaytirth Joshi" className="profile-image"/>
+              <img 
+                src={isProfessional ? profileSuitImage : profileCasualImage} 
+                alt={isProfessional ? "Jaytirth Joshi - Professional headshot in business suit" : "Jaytirth Joshi - Casual portrait"} 
+                title={isProfessional ? "Jaytirth Joshi - CEO and Founder of HealthSathi" : "Jaytirth Joshi - AI Innovator and Youth Entrepreneur"}
+                className="profile-image"
+              />
               <button onClick={() => setIsProfessional(!isProfessional)} className="image-switch-button">
                 {isProfessional ? 'Lock out' : 'Lock in'}
               </button>
@@ -223,7 +393,7 @@ const HomePage: React.FC = () => {
         </Slide>
         
         <Slide direction="up" triggerOnce>
-          <section id="experience" className="profile-section">
+          <section id="experience" className={`profile-section ${getAnimationClass('experience', 'scroll-animate-left')}`}>
             <h2>{t('experience.title')}</h2>
             {experienceData.map((job, index) => (
                 <div key={index} className="job">
@@ -247,7 +417,7 @@ const HomePage: React.FC = () => {
         </Slide>
         
         <Slide direction="up" triggerOnce>
-            <section id="education" className="profile-section">
+            <section id="education" className={`profile-section ${getAnimationClass('education', 'scroll-animate-right')}`}>
               <h2>{t('education.title')}</h2>
               {educationData.map((edu, index) => (
                 <div key={index} className="education-item">
@@ -260,7 +430,7 @@ const HomePage: React.FC = () => {
         
         <div className="grid-container">
           <Slide direction="up" triggerOnce>
-              <section id="skills" className="profile-section">
+              <section id="skills" className={`profile-section ${getAnimationClass('skills', 'scroll-animate-left')}`}>
                 <h2>{t('skills.title')}</h2>
                 <ul className="skills-list">
                     <li>{t('skills.skill1')}</li>
@@ -270,7 +440,7 @@ const HomePage: React.FC = () => {
               </section>
           </Slide>
           <Slide direction="up" triggerOnce>
-              <section id="languages" className="profile-section">
+              <section id="languages" className={`profile-section ${getAnimationClass('languages', 'scroll-animate-right')}`}>
                 <h2>{t('languages.title')}</h2>
                 <ul className="skills-list">
                     <li>{t('languages.lang1')}</li>
@@ -283,7 +453,7 @@ const HomePage: React.FC = () => {
         </div>
 
         <Slide direction="up" triggerOnce>
-            <section id="certifications" className="profile-section">
+            <section id="certifications" className={`profile-section ${getAnimationClass('certifications', 'scroll-animate')}`}>
               <h2>{t('certifications.title')}</h2>
               {certificationsData.map((cert, index) => (
                 <div key={index} className="certification-item">
@@ -294,7 +464,7 @@ const HomePage: React.FC = () => {
         </Slide>
         
         <Slide direction="up" triggerOnce>
-          <section id="patents" className="profile-section">
+          <section id="patents" className={`profile-section ${getAnimationClass('patents', 'scroll-animate-left')}`}>
             <h2>{t('patents.title')}</h2>
             <div className="patent-item">
               <h3>{t('patents.patent_title')}</h3>
@@ -307,7 +477,7 @@ const HomePage: React.FC = () => {
         </Slide>
 
         <Slide direction="up" triggerOnce>
-          <section id="contact" className="profile-section contact-section">
+          <section id="contact" className={`profile-section contact-section ${getAnimationClass('contact', 'scroll-animate-right')}`}>
             <h2>{t('contact.title')}</h2>
             <p>+1 (770) 376-5867</p>
             <p><a href="mailto:jaytirthjayjoshi@gmail.com">jaytirthjayjoshi@gmail.com</a></p>

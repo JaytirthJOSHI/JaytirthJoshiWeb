@@ -7,14 +7,24 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Jaytirth Joshi's Personal Portfolio"
+      content="Meet Jaytirth Joshi, a youth founder and patented medical AI innovator. As the CEO of HealthSathi, he's bridging the gap between technology and global healthcare. Explore his projects, patents, and vision."
     />
+    <meta name="keywords" content="Jaytirth Joshi, youth founder, AI innovator, HealthSathi, medical AI, healthcare technology, CEO, entrepreneur, student founder, tech, global health" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Jaytirth Joshi | Portfolio</title>
+    <title>Jaytirth Joshi | Youth Founder, AI Innovator, & CEO</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
   </body>
 </html> 

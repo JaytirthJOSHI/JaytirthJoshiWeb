@@ -1,0 +1,44 @@
+.social-links {
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.social-links a {
+  display: block;
+  font-size: 2em;
+  color: #fff;
+  transition: color 0.3s;
+  margin-bottom: 15px;
+}
+
+.social-links a:last-child {
+  margin-bottom: 0;
+}
+
+.social-links a:hover {
+  color: #64ffda;
+}
+
+@media (max-width: 768px) {
+  .social-links {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: auto;
+    width: 100%;
+    transform: none;
+    background-color: #0a192f;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    border-top: 1px solid #2c4a85;
+  }
+
+  .social-links a {
+    margin-bottom: 0;
+  }
+} 
