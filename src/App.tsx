@@ -18,6 +18,7 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import BackToTop from './components/BackToTop';
 import Navbar from './components/Navbar';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -29,15 +30,15 @@ class ErrorBoundary extends React.Component<
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError(_error: Error) {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error('Error caught by boundary:', error, errorInfo);
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         <div style={{ 
@@ -108,32 +109,34 @@ const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <Router>
-        <SEO />
-        <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
-        <PerformanceMonitor enabled={process.env.NODE_ENV === 'production'} />
-        <Navbar />
-        <main className="container">
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<AppWithSuspense />} />
-              <Route path="/portfolio" element={<PortfolioPage />}>
-                <Route path=":projectId" element={<ProjectDetailPage />} />
-              </Route>
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/chat" element={<ChatPage />} />
-              <Route path="/api-data" element={<ApiDataPage />} />
-              <Route path="/book" element={<BookPage />} />
-              <Route path="/patent-access" element={<PatentAccessPage />} />
-              <Route path="/patent-summary" element={<PatentSummaryPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
-              <Route path="/travel-map" element={<TravelMapPage />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <BackToTop />
-      </Router>
+      <ThemeProvider>
+        <Router>
+          <SEO />
+          <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
+          <PerformanceMonitor enabled={process.env.NODE_ENV === 'production'} />
+          <Navbar />
+          <main className="container">
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes>
+                <Route path="/" element={<AppWithSuspense />} />
+                <Route path="/portfolio" element={<PortfolioPage />}>
+                  <Route path=":projectId" element={<ProjectDetailPage />} />
+                </Route>
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/chat" element={<ChatPage />} />
+                <Route path="/api-data" element={<ApiDataPage />} />
+                <Route path="/book" element={<BookPage />} />
+                <Route path="/patent-access" element={<PatentAccessPage />} />
+                <Route path="/patent-summary" element={<PatentSummaryPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+                <Route path="/travel-map" element={<TravelMapPage />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <BackToTop />
+        </Router>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

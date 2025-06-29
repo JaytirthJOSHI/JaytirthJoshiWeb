@@ -1,6 +1,6 @@
 # Jaytirth Joshi Portfolio Website
 
-A modern, responsive portfolio website built with React, TypeScript, and enhanced with advanced animations, mobile navigation, and SEO optimization.
+A modern, responsive portfolio website built with React, TypeScript, and enhanced with advanced animations, mobile navigation, SEO optimization, and modern development practices.
 
 ## ✨ Features
 
@@ -31,10 +31,18 @@ A modern, responsive portfolio website built with React, TypeScript, and enhance
 - Dynamic language switching
 - Localized content and translations
 
+### 🎯 Modern Development Practices
+- TypeScript with strict type checking
+- ESLint and Prettier for code quality
+- Husky pre-commit hooks
+- Performance monitoring hooks
+- Theme context for state management
+- Service worker for offline functionality
+
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v14 or higher)
+- Node.js (v18 or higher)
 - npm or yarn
 
 ### Installation
@@ -51,78 +59,74 @@ npm install
 ```
 
 3. Set up environment variables:
-Create a `.env` file in the root directory:
+Copy `env.example` to `.env` and configure:
 ```env
 REACT_APP_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+REACT_APP_API_URL=https://api.example.com
+REACT_APP_ENABLE_ANALYTICS=true
+REACT_APP_ENABLE_PERFORMANCE_MONITORING=true
 ```
 
-### Setting up Google Analytics
-
-1. Go to [Google Analytics](https://analytics.google.com/)
-2. Create a new property for your website
-3. Get your Measurement ID (starts with "G-")
-4. Add it to your `.env` file:
-```env
-REACT_APP_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-```
-
-### Running the Application
+### Development Commands
 
 ```bash
-# Development mode
+# Start development server
 npm start
 
-# Production build
+# Run linting
+npm run lint
+
+# Format code
+npm run format
+
+# Type checking
+npm run type-check
+
+# Build for production
 npm run build
 
-# Test the production build
-npm run test
+# Run tests
+npm test
 ```
 
 ## 📁 Project Structure
 
 ```
 src/
-├── components/
-│   ├── GoogleAnalytics.tsx      # Google Analytics integration
-│   ├── PerformanceMonitor.tsx   # Core Web Vitals tracking
-│   ├── SEO.tsx                  # SEO meta tags and structured data
-│   ├── SocialLinks.tsx          # Social media links
-│   └── ...
-├── pages/
-│   ├── HomePage.tsx             # Main portfolio page
-│   ├── ContactPage.tsx          # Contact page
-│   └── ...
-├── locales/                     # Translation files
-└── assets/                      # Images and static assets
+├── components/           # Reusable UI components
+├── contexts/            # React contexts (Theme, etc.)
+├── hooks/               # Custom React hooks
+├── pages/               # Page components
+├── locales/             # Translation files
+├── assets/              # Images and static assets
+└── types/               # TypeScript type definitions
 ```
 
 ## 🎯 Key Features Explained
 
-### Scroll-Triggered Animations
-The website uses Intersection Observer API to trigger animations when elements come into view:
-- Elements slide in from different directions
-- Smooth opacity transitions
-- Staggered animation timing for visual hierarchy
-
-### Mobile Navigation
-- Hamburger menu for mobile devices
-- Full-screen overlay navigation
-- Smooth slide-in animation
-- Touch-optimized navigation links
+### Modern Development Setup
+- **ESLint**: Code linting with TypeScript and React rules
+- **Prettier**: Automatic code formatting
+- **Husky**: Git hooks for pre-commit checks
+- **TypeScript**: Strict type checking for better code quality
 
 ### Performance Monitoring
-- Tracks Core Web Vitals (LCP, FID, CLS)
-- Monitors page load times
-- Tracks user interactions
-- Sends data to Google Analytics
+- Custom hooks for analytics tracking
+- Core Web Vitals monitoring
+- User interaction tracking
+- Performance metrics collection
 
-### SEO Optimization
-- Structured data for rich snippets
-- Open Graph tags for social sharing
-- Twitter Card support
-- XML sitemap for search engines
-- Meta tags for better indexing
+### Theme Management
+- Context-based theme switching
+- System theme detection
+- Persistent theme preferences
+- Dark/light mode support
+
+### Service Worker
+- Offline functionality
+- Resource caching
+- Better performance
+- PWA capabilities
 
 ## 🛠️ Customization
 
@@ -168,11 +172,19 @@ The website includes comprehensive analytics tracking:
 npm run build
 ```
 
+### Code Quality Checks
+```bash
+npm run lint        # Check for code issues
+npm run format      # Format code
+npm run type-check  # TypeScript validation
+```
+
 ### Deployment
 The build folder contains optimized files ready for deployment:
 - Minified JavaScript and CSS
 - Optimized images
 - Static assets
+- Service worker for offline functionality
 
 ### Recommended Hosting
 - Vercel (recommended for React apps)
@@ -188,24 +200,34 @@ The build folder contains optimized files ready for deployment:
 - Reduced motion for accessibility
 - Touch device optimizations
 - Performance monitoring
+- Service worker caching
+- Code splitting
 
 ### Further Optimizations
 - Image optimization and WebP support
-- Service worker for offline functionality
-- Code splitting for better loading
+- Advanced caching strategies
 - CDN integration
+- Bundle analysis and optimization
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+4. Run quality checks (`npm run lint && npm run format && npm run type-check`)
+5. Commit your changes (`git commit -m 'Add amazing feature'`)
+6. Push to the branch (`git push origin feature/amazing-feature`)
+7. Open a Pull Request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- React and TypeScript communities
+- Contributors and supporters
+- Open source libraries used in this project
 
 ## 📞 Contact
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaCode } from 'react-icons/fa';
 import './ApiDataPage.css';
 
 interface GitHubRepo {

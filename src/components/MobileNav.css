@@ -1,0 +1,227 @@
+/* Mobile Navigation Styles */
+.mobile-nav-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.mobile-nav-toggle:hover {
+  background: rgba(100, 255, 218, 0.2);
+  transform: scale(1.05);
+}
+
+.mobile-nav-toggle.scrolled {
+  background: rgba(10, 25, 47, 0.9);
+  border-color: rgba(100, 255, 218, 0.3);
+}
+
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 25, 47, 0.95);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  padding: 80px 20px 20px;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  border-left: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.mobile-nav.open {
+  right: 0;
+}
+
+.mobile-nav-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.mobile-nav-header h3 {
+  color: #64ffda;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.mobile-nav-header p {
+  color: #8892b0;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.mobile-nav-list li {
+  margin-bottom: 8px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 16px 20px;
+  color: #ccd6f6;
+  text-decoration: none;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-height: 56px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+}
+
+.mobile-nav-link:hover {
+  background: rgba(100, 255, 218, 0.1);
+  border-color: rgba(100, 255, 218, 0.2);
+  color: #64ffda;
+  transform: translateX(8px);
+}
+
+.mobile-nav-link.active {
+  background: rgba(100, 255, 218, 0.15);
+  border-color: rgba(100, 255, 218, 0.3);
+  color: #64ffda;
+}
+
+.nav-icon {
+  margin-right: 16px;
+  font-size: 1.2rem;
+  width: 20px;
+  text-align: center;
+}
+
+.mobile-nav-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.social-link:hover {
+  background: rgba(100, 255, 218, 0.2);
+  transform: scale(1.1);
+  color: #64ffda;
+}
+
+/* Desktop styles - hide mobile nav */
+@media (min-width: 768px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+  
+  .mobile-nav-overlay {
+    display: none;
+  }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 480px) {
+  .mobile-nav {
+    max-width: 100%;
+    padding: 60px 16px 16px;
+  }
+  
+  .mobile-nav-link {
+    padding: 20px 16px;
+    font-size: 1rem;
+  }
+  
+  .mobile-nav-toggle {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .mobile-nav-link {
+    min-height: 60px;
+    padding: 20px 16px;
+  }
+  
+  .mobile-nav-toggle {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .social-link {
+    min-height: 48px;
+    min-width: 48px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav,
+  .mobile-nav-overlay,
+  .mobile-nav-link,
+  .mobile-nav-toggle,
+  .social-link {
+    transition: none;
+  }
+}
