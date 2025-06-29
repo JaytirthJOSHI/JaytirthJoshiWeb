@@ -1,0 +1,279 @@
+.book-page {
+  min-height: 100vh;
+  background-color: #0a192f;
+  color: #e6f1ff;
+  padding: 2rem;
+}
+
+.book-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.book-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #64ffda;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, #64ffda, #8892b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.book-header p {
+  font-size: 1.2rem;
+  color: #8892b0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.booking-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.booking-info {
+  background: #112240;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #2c4a85;
+  height: fit-content;
+}
+
+.booking-info h2 {
+  font-size: 2rem;
+  color: #e6f1ff;
+  margin-bottom: 2rem;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: #0a192f;
+  border-radius: 8px;
+  border: 1px solid #2c4a85;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  border-color: #64ffda;
+  transform: translateY(-2px);
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  color: #64ffda;
+  min-width: 24px;
+}
+
+.info-item h3 {
+  color: #e6f1ff;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.info-item p {
+  color: #8892b0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.booking-note {
+  background: rgba(100, 255, 218, 0.05);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.booking-note h3 {
+  color: #64ffda;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.booking-note ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.booking-note li {
+  color: #8892b0;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.booking-note li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #64ffda;
+  font-weight: bold;
+}
+
+.calendar-container {
+  background: #112240;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #2c4a85;
+}
+
+.calendar-container h2 {
+  font-size: 2rem;
+  color: #e6f1ff;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.calendar-embed {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #2c4a85;
+}
+
+.calendar-embed iframe {
+  display: block;
+  width: 100%;
+  height: 600px;
+  border: none;
+}
+
+.booking-footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: #112240;
+  border-radius: 12px;
+  border: 1px solid #2c4a85;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.booking-footer h3 {
+  color: #64ffda;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.booking-footer p {
+  color: #8892b0;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact-alternatives {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(45deg, #64ffda, #00d4aa);
+  color: #0a192f;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(100, 255, 218, 0.3);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .book-page {
+    padding: 1rem;
+  }
+  
+  .book-header h1 {
+    font-size: 2rem;
+  }
+  
+  .book-header p {
+    font-size: 1rem;
+  }
+  
+  .booking-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .booking-info,
+  .calendar-container {
+    padding: 1.5rem;
+  }
+  
+  .calendar-embed iframe {
+    height: 500px;
+  }
+  
+  .contact-alternatives {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .booking-info h2,
+  .calendar-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .info-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .info-icon {
+    font-size: 1.2rem;
+  }
+  
+  .calendar-embed iframe {
+    height: 400px;
+  }
+  
+  .contact-link {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+} 
