@@ -27,8 +27,9 @@ const App: React.FC = () => {
       <main className="container">
         <Routes>
           <Route path="/" element={<AppWithSuspense />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="project/:projectId" element={<ProjectDetailPage />} />
+          <Route path="/portfolio" element={<PortfolioPage />}>
+            <Route path=":projectId" element={<ProjectDetailPage />} />
+          </Route>
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/patent-access" element={<PatentAccessPage />} />

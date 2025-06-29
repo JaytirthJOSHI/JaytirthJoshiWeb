@@ -1,19 +1,45 @@
 import React from 'react';
+import { Outlet, Link } from 'react-router-dom';
 import './PortfolioPage.css';
 
 const PortfolioPage: React.FC = () => {
+  const projects = [
+    {
+      id: 'healthsathi',
+      title: 'HealthSathi',
+      description: 'AI-Powered Medical Information Platform'
+    },
+    {
+      id: 'dr-fatafat',
+      title: 'Dr. Fatafat',
+      description: 'AI Medical Report Analyzer'
+    },
+    {
+      id: 'patent-system',
+      title: 'Patent Management System',
+      description: 'Healthcare Innovation Patent'
+    }
+  ];
+
   return (
     <div className="portfolio-container">
-      <h1>HealthSathi</h1>
-      <h2>AI-Powered Medical Information</h2>
-      <p>
-        HealthSathi is an innovative platform designed to bridge the communication gap in healthcare. Our key solution, Dr. Fatafat, uses AI to analyze and simplify complex medical reports, making them easy for anyone to understand.
-      </p>
-      <div className="cta-buttons">
-        <a href="https://www.healthsathi.org" target="_blank" rel="noopener noreferrer" className="cta-button">
-          Visit HealthSathi Website
-        </a>
+      <h1>Portfolio</h1>
+      <h2>My Projects</h2>
+      
+      <div className="projects-grid">
+        {projects.map(project => (
+          <div key={project.id} className="project-item">
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
+            <Link to={`/portfolio/${project.id}`} className="project-link">
+              View Details
+            </Link>
+          </div>
+        ))}
       </div>
+
+      {/* Nested route outlet */}
+      <Outlet />
     </div>
   );
 };
