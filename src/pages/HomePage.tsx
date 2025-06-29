@@ -8,8 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { FaMagic, FaBars, FaTimes } from 'react-icons/fa';
 import './HomePage.css';
 import SocialLinks from '../components/SocialLinks';
-import GitHubStats from '../components/GitHubStats';
-import '../components/GitHubStats.css';
 import profileSuitImage from '../assets/Images/jaytirth-joshi-professional-headshot.png';
 import profileCasualImage from '../assets/Images/jaytirth-joshi-casual-portrait.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
@@ -280,7 +278,6 @@ const MobileNavigation: React.FC = () => {
         <button onClick={() => scrollToSection('certifications')} className="mobile-nav-link">{t('certifications.title')}</button>
         <button onClick={() => scrollToSection('patents')} className="mobile-nav-link">{t('patents.title')}</button>
         <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">{t('contact.title')}</button>
-        <button onClick={() => scrollToSection('github')} className="mobile-nav-link">GitHub</button>
         <Link to="/portfolio" onClick={closeNav} className="mobile-nav-link">Portfolio</Link>
         <Link to="/contact" onClick={closeNav} className="mobile-nav-link">Contact</Link>
       </nav>
@@ -485,12 +482,6 @@ const HomePage: React.FC = () => {
             <p>+1 (770) 376-5867</p>
             <p><a href="mailto:jaytirthjayjoshi@gmail.com">jaytirthjayjoshi@gmail.com</a></p>
             <p><a href="https://www.linkedin.com/in/jaytirthjoshi" target="_blank" rel="noopener noreferrer">linkedin.com/in/jaytirthjoshi</a></p>
-          </section>
-        </Slide>
-
-        <Slide direction="up" triggerOnce>
-          <section id="github" className={`profile-section ${getAnimationClass('github', 'scroll-animate')}`}>
-            <GitHubStats />
           </section>
         </Slide>
       </main>
