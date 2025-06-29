@@ -1,0 +1,66 @@
+.contact-container {
+  text-align: center;
+  padding: 100px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-container h1 {
+  font-size: 3em;
+  color: #64ffda;
+  margin-bottom: 20px;
+}
+
+.contact-container p {
+  color: #8892b0;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ccd6f6;
+}
+
+.nda-section {
+  margin-bottom: 2rem;
+}
+
+.nda-text {
+  background-color: #1a2c4e;
+  border: 1px solid #2c4a85;
+  border-radius: 8px;
+  padding: 1.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+}
+
+.nda-text p {
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  color: #a8b2d1;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.form-group-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-group-checkbox input {
+  width: auto;
+  margin-right: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+} 

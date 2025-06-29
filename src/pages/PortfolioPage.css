@@ -1,0 +1,24 @@
+.portfolio-container {
+  text-align: center;
+  padding: 100px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.portfolio-container h1 {
+  font-size: 3em;
+  color: #64ffda;
+  margin-bottom: 10px;
+}
+
+.portfolio-container h2 {
+  font-size: 1.5em;
+  color: #ccd6f6;
+  margin-bottom: 20px;
+}
+
+.portfolio-container p {
+  color: #8892b0;
+  line-height: 1.6;
+  margin-bottom: 40px;
+} 

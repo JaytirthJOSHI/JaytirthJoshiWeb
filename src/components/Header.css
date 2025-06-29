@@ -1,0 +1,36 @@
+.header {
+  background-color: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 15px 30px;
+  color: #ccd6f6;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #13314c;
+}
+
+.header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header nav ul li {
+  margin: 0 20px;
+}
+
+.header nav ul li a {
+  color: #ccd6f6;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.header nav ul li a:hover,
+.header nav ul li a.active {
+  color: #64ffda;
+} 
