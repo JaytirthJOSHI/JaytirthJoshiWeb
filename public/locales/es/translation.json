@@ -1,0 +1,44 @@
+{
+    "hero": {
+        "name": "Jaytirth Joshi",
+        "title": "Fundador y CEO de HealthSathi | Innovador de IA Médica Patentada | Orador en Harvard, Microsoft, Emory y Más",
+        "tagline": "Uniendo Tecnología y Salud Global | Asociado con Gobiernos: EE. UU., India, China, EAU",
+        "cta": "Aprende Más"
+    },
+    "summary": {
+        "title": "Resumen",
+        "paragraph1": "Jaytirth Joshi es un innovador en IA médica y el CEO y fundador de HealthSathi, una plataforma impulsada por IA que simplifica información médica compleja y empodera a pacientes de todo el mundo. Residente de Marietta, Georgia, es un estudiante de secundaria que ya ha conseguido una patente de IA para el cuidado de la salud, ha liderado un equipo de startup de más de 15 personas y ha hablado en instituciones como Harvard, Microsoft y Emory.",
+        "paragraph2": "Su trabajo une la medicina y la tecnología, con experiencia práctica desde las UCIs de hospitales y unidades de cirugía cardíaca hasta pasantías en salud pública a nivel nacional con los gobiernos de India, China, los EAU y los EE. UU. Un defensor multilingüe y líder de Modelo de Naciones Unidas, Jaytirth combina su experiencia en IA, su conocimiento del cuidado de la salud y su liderazgo en startups para impulsar un impacto significativo en la salud global, comenzando con la accesibilidad y la educación del paciente."
+    },
+    "experience": {
+        "title": "Experiencia"
+    },
+    "education": {
+        "title": "Educación"
+    },
+    "skills": {
+        "title": "Habilidades Principales",
+        "skill1": "Experto en IA (SME)",
+        "skill2": "Cuidado de la Salud",
+        "skill3": "Emprendimiento"
+    },
+    "languages": {
+        "title": "Idiomas",
+        "lang1": "Gujarati (Profesional Completo)",
+        "lang2": "Inglés (Nativo o Bilingüe)",
+        "lang3": "Chino (Profesional Completo)",
+        "lang4": "Hindi (Nativo o Bilingüe)"
+    },
+    "certifications": {
+        "title": "Certificaciones"
+    },
+    "patents": {
+        "title": "Patentes",
+        "patent_title": "SISTEMA Y MÉTODO DE EVALUACIÓN DE SALUD PERSONALIZADA USANDO INTELIGENCIA ARTIFICIAL",
+        "patent_description": "Explore la innovadora tecnología detrás de HealthSathi. Solicite acceso al resumen de la patente para aprender más sobre el sistema impulsado por IA que está cambiando la comunicación en el cuidado de la salud.",
+        "cta": "Leer Resumen de la Patente"
+    },
+    "contact": {
+        "title": "Contacto"
+    }
+}

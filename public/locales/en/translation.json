@@ -1,0 +1,44 @@
+{
+    "hero": {
+        "name": "Jaytirth Joshi",
+        "title": "Founder & CEO @ HealthSathi | Patented Medical AI Innovator | Speaker @ Harvard, Microsoft, Emory & More",
+        "tagline": "Bridging Tech & Global Healthcare | Partnered with Governments: US, India, China, UAE",
+        "cta": "Learn More"
+    },
+    "summary": {
+        "title": "Summary",
+        "paragraph1": "Jaytirth Joshi is a Medical AI innovator and the CEO & Founder of HealthSathi, an AI-powered platform that simplifies complex medical information and empowers patients around the world. Based in Marietta, Georgia, he's a high school student who's already secured a healthcare AI patent, led a 15+ person startup team, and spoken at institutions like Harvard, Microsoft, and Emory.",
+        "paragraph2": "His work bridges the gap between medicine and technology, with hands-on experience from hospital ICUs and cardiac surgery units to national-level public health internships with the governments of India, China, the UAE, and the US. A multilingual advocate and Model UN leader, Jaytirth combines AI expertise, healthcare insight, and startup leadership to drive meaningful impact in global health, starting with accessibility and patient education."
+    },
+    "experience": {
+        "title": "Experience"
+    },
+    "education": {
+        "title": "Education"
+    },
+    "skills": {
+        "title": "Top Skills",
+        "skill1": "AI SME (Subject Matter Expert)",
+        "skill2": "Healthcare",
+        "skill3": "Entrepreneurship"
+    },
+    "languages": {
+        "title": "Languages",
+        "lang1": "Gujarati (Full Professional)",
+        "lang2": "English (Native or Bilingual)",
+        "lang3": "Chinese (Full Professional)",
+        "lang4": "Hindi (Native or Bilingual)"
+    },
+    "certifications": {
+        "title": "Certifications"
+    },
+    "patents": {
+        "title": "Patents",
+        "patent_title": "SYSTEM AND METHOD OF PERSONALIZED HEALTH ASSESSMENT USING ARTIFICIAL INTELLIGENCE",
+        "patent_description": "Explore the innovative technology behind HealthSathi. Request access to the patent summary to learn more about the AI-powered system that's changing healthcare communication.",
+        "cta": "Read Patent Summary"
+    },
+    "contact": {
+        "title": "Contact"
+    }
+}

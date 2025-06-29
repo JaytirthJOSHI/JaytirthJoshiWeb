@@ -1,11 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import Particles from "react-tsparticles";
 import type { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim"; 
 import { Fade, Slide } from 'react-awesome-reveal';
+import { useTranslation } from 'react-i18next';
 import './HomePage.css';
-import profileImage from '../assets/Images/profile-suit.png'; // Import the image
+import profileSuitImage from '../assets/Images/profile-suit.png';
+import profileCasualImage from '../assets/Images/profile-casual.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
 
 // Data arrays for your profile
@@ -91,8 +93,25 @@ const certificationsData = [
   { name: 'Introduction to Healthcare' },
 ];
 
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
+  return (
+    <div className="language-switcher">
+      <button onClick={() => changeLanguage('en')}>English</button>
+      <button onClick={() => changeLanguage('es')}>Español</button>
+    </div>
+  );
+};
+
 const HomePage: React.FC = () => {
+  const { t } = useTranslation();
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
+  const [isProfessional, setIsProfessional] = useState(true);
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
@@ -104,6 +123,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="page-wrapper">
+      <LanguageSwitcher />
       <section className="hero-section">
         <Particles
           id="tsparticles"
@@ -173,13 +193,13 @@ const HomePage: React.FC = () => {
         />
         <div className="content-overlay">
           <Fade direction="down" triggerOnce>
-            <h1>Jaytirth Joshi</h1>
-            <h2>Founder & CEO @ HealthSathi | Patented Medical AI Innovator | Speaker @ Harvard, Microsoft, Emory & More</h2>
+            <h1>{t('hero.name')}</h1>
+            <h2>{t('hero.title')}</h2>
           </Fade>
           <Slide direction="up" triggerOnce>
-            <p className="tagline">Bridging Tech & Global Healthcare | Partnered with Governments: US, India, China, UAE</p>
+            <p className="tagline">{t('hero.tagline')}</p>
             <div className="cta-buttons">
-              <a href="#summary" className="cta-button">Learn More</a>
+              <a href="#summary" className="cta-button">{t('hero.cta')}</a>
             </div>
           </Slide>
         </div>
@@ -188,18 +208,23 @@ const HomePage: React.FC = () => {
       <main className="profile-container">
         <Slide direction="up" triggerOnce>
           <section id="summary" className="profile-section with-image">
-            <img src={profileImage} alt="Jaytirth Joshi" className="profile-image"/>
+            <div className="profile-image-container">
+              <img src={isProfessional ? profileSuitImage : profileCasualImage} alt="Jaytirth Joshi" className="profile-image"/>
+              <button onClick={() => setIsProfessional(!isProfessional)} className="image-switch-button">
+                {isProfessional ? 'Lock out' : 'Lock in'}
+              </button>
+            </div>
             <div className="summary-text">
-              <h2>Summary</h2>
-              <p>Jaytirth Joshi is a Medical AI innovator and the CEO & Founder of HealthSathi, an AI-powered platform that simplifies complex medical information and empowers patients around the world. Based in Marietta, Georgia, he's a high school student who's already secured a healthcare AI patent, led a 15+ person startup team, and spoken at institutions like Harvard, Microsoft, and Emory.</p>
-              <p>His work bridges the gap between medicine and technology, with hands-on experience from hospital ICUs and cardiac surgery units to national-level public health internships with the governments of India, China, the UAE, and the US. A multilingual advocate and Model UN leader, Jaytirth combines AI expertise, healthcare insight, and startup leadership to drive meaningful impact in global health, starting with accessibility and patient education.</p>
+              <h2>{t('summary.title')}</h2>
+              <p>{t('summary.paragraph1')}</p>
+              <p>{t('summary.paragraph2')}</p>
             </div>
           </section>
         </Slide>
         
         <Slide direction="up" triggerOnce>
           <section id="experience" className="profile-section">
-            <h2>Experience</h2>
+            <h2>{t('experience.title')}</h2>
             {experienceData.map((job, index) => (
                 <div key={index} className="job">
                     <div className="job-header" onClick={() => handleJobToggle(index)}>
@@ -223,7 +248,7 @@ const HomePage: React.FC = () => {
         
         <Slide direction="up" triggerOnce>
             <section id="education" className="profile-section">
-              <h2>Education</h2>
+              <h2>{t('education.title')}</h2>
               {educationData.map((edu, index) => (
                 <div key={index} className="education-item">
                     <h3>{edu.school}</h3>
@@ -236,22 +261,22 @@ const HomePage: React.FC = () => {
         <div className="grid-container">
           <Slide direction="up" triggerOnce>
               <section id="skills" className="profile-section">
-                <h2>Top Skills</h2>
+                <h2>{t('skills.title')}</h2>
                 <ul className="skills-list">
-                    <li>AI SME (Subject Matter Expert)</li>
-                    <li>Healthcare</li>
-                    <li>Entrepreneurship</li>
+                    <li>{t('skills.skill1')}</li>
+                    <li>{t('skills.skill2')}</li>
+                    <li>{t('skills.skill3')}</li>
                 </ul>
               </section>
           </Slide>
           <Slide direction="up" triggerOnce>
               <section id="languages" className="profile-section">
-                <h2>Languages</h2>
+                <h2>{t('languages.title')}</h2>
                 <ul className="skills-list">
-                    <li>Gujarati (Full Professional)</li>
-                    <li>English (Native or Bilingual)</li>
-                    <li>Chinese (Full Professional)</li>
-                    <li>Hindi (Native or Bilingual)</li>
+                    <li>{t('languages.lang1')}</li>
+                    <li>{t('languages.lang2')}</li>
+                    <li>{t('languages.lang3')}</li>
+                    <li>{t('languages.lang4')}</li>
                 </ul>
               </section>
           </Slide>
@@ -259,7 +284,7 @@ const HomePage: React.FC = () => {
 
         <Slide direction="up" triggerOnce>
             <section id="certifications" className="profile-section">
-              <h2>Certifications</h2>
+              <h2>{t('certifications.title')}</h2>
               {certificationsData.map((cert, index) => (
                 <div key={index} className="certification-item">
                     <p>{cert.name}</p>
@@ -270,12 +295,12 @@ const HomePage: React.FC = () => {
         
         <Slide direction="up" triggerOnce>
           <section id="patents" className="profile-section">
-            <h2>Patents</h2>
+            <h2>{t('patents.title')}</h2>
             <div className="patent-item">
-              <h3>SYSTEM AND METHOD OF PERSONALIZED HEALTH ASSESSMENT USING ARTIFICIAL INTELLIGENCE</h3>
-              <p>Explore the innovative technology behind HealthSathi. Request access to the patent summary to learn more about the AI-powered system that's changing healthcare communication.</p>
+              <h3>{t('patents.patent_title')}</h3>
+              <p>{t('patents.patent_description')}</p>
               <div className="cta-buttons">
-                  <Link to="/patent-access" className="cta-button">Read Patent Summary</Link>
+                  <Link to="/patent-access" className="cta-button">{t('patents.cta')}</Link>
               </div>
             </div>
           </section>
@@ -283,7 +308,7 @@ const HomePage: React.FC = () => {
 
         <Slide direction="up" triggerOnce>
           <section id="contact" className="profile-section contact-section">
-            <h2>Contact</h2>
+            <h2>{t('contact.title')}</h2>
             <p>+1 (770) 376-5867</p>
             <p><a href="mailto:jaytirthjayjoshi@gmail.com">jaytirthjayjoshi@gmail.com</a></p>
             <p><a href="https://www.linkedin.com/in/jaytirthjoshi" target="_blank" rel="noopener noreferrer">linkedin.com/in/jaytirthjoshi</a></p>
@@ -294,4 +319,16 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+const Loader = () => (
+  <div className="page-wrapper">
+    <div>loading...</div>
+  </div>
+);
+
+export default function AppWithSuspense() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <HomePage />
+    </Suspense>
+  );
+}

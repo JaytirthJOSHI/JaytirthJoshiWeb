@@ -107,4 +107,4 @@ ${fullName}
   );
 };
 
-export default PatentAccessPage; 
+export default PatentAccessPage;
