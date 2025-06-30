@@ -401,7 +401,18 @@ const HomePage: React.FC = () => {
             <h2>{t('experience.title')}</h2>
             {experienceData.map((job, index) => (
                 <div key={index} className="job">
-                    <div className="job-header" onClick={() => handleJobToggle(index)}>
+                    <div
+                        className="job-header"
+                        onClick={() => handleJobToggle(index)}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleJobToggle(index);
+                          }
+                        }}
+                    >
                         <h3>{job.title}</h3>
                         <p className="company">{job.company}</p>
                         <span className={`job-toggle ${expandedJob === index ? 'expanded' : ''}`}></span>

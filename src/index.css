@@ -194,6 +194,37 @@ img {
   outline-offset: 2px;
 }
 
+/* Screen reader only class for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip to main content link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #64ffda;
+  color: #0a192f;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1001;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
 /* Mobile-optimized selection */
 ::selection {
   background: rgba(100, 255, 218, 0.3);
@@ -273,3 +304,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } 
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .profile-container, .hero-section, .header, .navbar {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .social-links {
+    flex-direction: row !important;
+    justify-content: center !important;
+    margin-bottom: 1rem;
+    margin-left: 0 !important;
+  }
+  .profile-photo {
+    margin: 0 auto 1rem auto !important;
+  }
+  .hero-section {
+    padding: 2rem 1rem !important;
+  }
+  .cta-buttons {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}

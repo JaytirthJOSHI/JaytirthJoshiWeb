@@ -1,7 +1,11 @@
 import { useEffect, useCallback } from 'react';
 
+interface GtagParameters {
+  [key: string]: string | number | boolean;
+}
+
 export const usePerformance = (enabled: boolean = true) => {
-  const trackEvent = useCallback((eventName: string, parameters: Record<string, any> = {}) => {
+  const trackEvent = useCallback((eventName: string, parameters: GtagParameters = {}) => {
     if (window.gtag && enabled) {
       window.gtag('event', eventName, parameters);
     }
@@ -49,4 +53,4 @@ export const usePerformance = (enabled: boolean = true) => {
     trackPageView,
     trackUserInteraction,
   };
-}; 
+};

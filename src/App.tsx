@@ -19,6 +19,8 @@ import PerformanceMonitor from './components/PerformanceMonitor';
 import BackToTop from './components/BackToTop';
 import Navbar from './components/Navbar';
 import { ThemeProvider } from './contexts/ThemeContext';
+import NotFoundPage from './pages/NotFoundPage';
+import CookiesPage from './pages/CookiesPage';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -41,21 +43,26 @@ class ErrorBoundary extends React.Component<
   override render() {
     if (this.state.hasError) {
       return (
-        <div style={{ 
-          padding: '2rem', 
-          textAlign: 'center', 
-          color: '#e6f1ff',
-          backgroundColor: '#0a192f',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
+        <div 
+          role="alert"
+          aria-live="polite"
+          style={{ 
+            padding: '2rem', 
+            textAlign: 'center', 
+            color: '#e6f1ff',
+            backgroundColor: '#0a192f',
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
           <h1>Something went wrong</h1>
           <p>Please refresh the page or try again later.</p>
           <button 
             onClick={() => window.location.reload()}
+            aria-label="Refresh the page to try again"
             style={{
               padding: '10px 20px',
               backgroundColor: '#64ffda',
@@ -78,22 +85,31 @@ class ErrorBoundary extends React.Component<
 
 // Loading Component
 const LoadingSpinner = () => (
-  <div style={{ 
-    display: 'flex', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    height: '100vh',
-    backgroundColor: '#0a192f',
-    color: '#64ffda'
-  }}>
-    <div style={{
-      width: '50px',
-      height: '50px',
-      border: '3px solid #64ffda',
-      borderTop: '3px solid transparent',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite'
-    }}></div>
+  <div 
+    role="status"
+    aria-live="polite"
+    aria-label="Loading content"
+    style={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      height: '100vh',
+      backgroundColor: '#0a192f',
+      color: '#64ffda'
+    }}
+  >
+    <div 
+      aria-hidden="true"
+      style={{
+        width: '50px',
+        height: '50px',
+        border: '3px solid #64ffda',
+        borderTop: '3px solid transparent',
+        borderRadius: '50%',
+        animation: 'spin 1s linear infinite'
+      }}
+    ></div>
+    <span className="sr-only">Loading...</span>
     <style>{`
       @keyframes spin {
         0% { transform: rotate(0deg); }
@@ -114,8 +130,11 @@ const App: React.FC = () => {
           <SEO />
           <GoogleAnalytics measurementId={GA_MEASUREMENT_ID} />
           <PerformanceMonitor enabled={process.env.NODE_ENV === 'production'} />
+          <a href="#main-content" className="skip-link">
+            Skip to main content
+          </a>
           <Navbar />
-          <main className="container">
+          <main id="main-content" className="container" role="main" aria-label="Main content">
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
                 <Route path="/" element={<AppWithSuspense />} />
@@ -131,6 +150,8 @@ const App: React.FC = () => {
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
                 <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
                 <Route path="/travel-map" element={<TravelMapPage />} />
+                <Route path="/cookies" element={<CookiesPage />} />
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </Suspense>
           </main>

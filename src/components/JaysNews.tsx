@@ -119,7 +119,7 @@ const JaysNews: React.FC = () => {
               className={`news-card ${activeItem === item.id ? 'active' : ''} ${item.category}`}
               onClick={() => handleItemClick(item.id)}
               onKeyDown={(e) => handleKeyDown(e, item.id)}
-              role="listitem"
+              role="button"
               tabIndex={0}
               aria-expanded={activeItem === item.id}
               aria-describedby={`news-description-${item.id}`}

@@ -8,6 +8,10 @@ interface FirstInputEntry extends PerformanceEntry {
   processingStart: number;
 }
 
+interface LayoutShiftEntry extends PerformanceEntry {
+  value: number;
+}
+
 const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({ enabled = true }) => {
   useEffect(() => {
     if (!enabled || !window.gtag) return;
@@ -35,7 +39,7 @@ const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({ enabled = true 
         }
         
         if (entry.entryType === 'layout-shift') {
-          const cls = (entry as any).value;
+          const cls = (entry as LayoutShiftEntry).value;
           window.gtag('event', 'CLS', {
             value: Math.round(cls * 1000) / 1000,
             event_category: 'Web Vitals',
@@ -81,4 +85,4 @@ const PerformanceMonitor: React.FC<PerformanceMonitorProps> = ({ enabled = true 
   return null;
 };
 
-export default PerformanceMonitor; 
+export default PerformanceMonitor;

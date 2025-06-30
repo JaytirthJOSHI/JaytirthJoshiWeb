@@ -28,6 +28,13 @@ const Navbar: React.FC = () => {
           >
             <FaGithub /> View My GitHub Activity
           </Link>
+          <Link 
+            to="/cookies" 
+            className="nav-link"
+            title="Cookie Awareness"
+          >
+            🍪 Cookies
+          </Link>
         </div>
       </div>
     </nav>

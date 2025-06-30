@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { FaQuoteLeft, FaQuoteRight, FaSync } from 'react-icons/fa';
 import './InspirationalQuotes.css';
 
@@ -13,7 +13,7 @@ const InspirationalQuotes: React.FC = () => {
   const [currentQuote, setCurrentQuote] = useState<Quote | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const quotes: Quote[] = [
+  const quotes: Quote[] = useMemo(() => [
     {
       id: 1,
       text: "The best way to predict the future is to invent it.",
@@ -104,20 +104,20 @@ const InspirationalQuotes: React.FC = () => {
       author: "Mark Zuckerberg",
       category: 'innovation'
     }
-  ];
+  ], []);
 
-  const getRandomQuote = () => {
+  const getRandomQuote = useCallback(() => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     return quotes[randomIndex];
-  };
+  }, [quotes]);
 
-  const changeQuote = () => {
+  const changeQuote = useCallback(() => {
     setIsLoading(true);
     setTimeout(() => {
       setCurrentQuote(getRandomQuote());
       setIsLoading(false);
     }, 300);
-  };
+  }, [getRandomQuote]);
 
   useEffect(() => {
     setCurrentQuote(getRandomQuote());
@@ -128,7 +128,7 @@ const InspirationalQuotes: React.FC = () => {
     }, 30000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [changeQuote, getRandomQuote]);
 
   const getCategoryColor = (category: string) => {
     switch (category) {

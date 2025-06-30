@@ -73,8 +73,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   return (
     <div className={`image-container ${className}`}>
       {!isLoaded && !priority && (
-        <div className="image-placeholder">
-          <div className="loading-spinner"></div>
+        <div className="image-placeholder" aria-hidden="true">
+          <div className="loading-spinner" aria-hidden="true"></div>
         </div>
       )}
       <img
@@ -96,4 +96,4 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
   );
 };
 
-export default OptimizedImage; 
+export default OptimizedImage;

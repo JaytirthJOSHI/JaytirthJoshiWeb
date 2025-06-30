@@ -47,59 +47,73 @@ const MobileNav: React.FC = () => {
       </button>
 
       {/* Mobile Navigation Overlay */}
-      <div className={`mobile-nav-overlay ${isOpen ? 'open' : ''}`} onClick={toggleNav}>
-        <nav className={`mobile-nav ${isOpen ? 'open' : ''}`} onClick={(e) => e.stopPropagation()}>
-          <div className="mobile-nav-header">
-            <h3>Jaytirth Joshi</h3>
-            <p>CEO & Founder of HealthSathi</p>
-          </div>
-
-          <ul className="mobile-nav-list">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname === item.path;
-              
-              return (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className={`mobile-nav-link ${isActive ? 'active' : ''}`}
-                    onClick={toggleNav}
-                  >
-                    <Icon className="nav-icon" />
-                    <span>{item.label}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          <div className="mobile-nav-footer">
-            <div className="social-links">
-              <a
-                href="https://linkedin.com/in/jaytirthjoshi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                aria-label="LinkedIn"
-              >
-                <FaUser />
-              </a>
-              <a
-                href="https://health-sathi.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                aria-label="HealthSathi"
-              >
-                <FaHome />
-              </a>
+      <div
+        className={`mobile-nav-overlay ${isOpen ? 'open' : ''}`}
+        onClick={toggleNav}
+        role="button"
+        tabIndex={0}
+        aria-label="Close navigation menu"
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleNav();
+          }
+        }}
+      >
+        <div onClick={e => e.stopPropagation()}>
+          <nav className={`mobile-nav ${isOpen ? 'open' : ''}`}>
+            <div className="mobile-nav-header">
+              <h3>Jaytirth Joshi</h3>
+              <p>CEO & Founder of HealthSathi</p>
             </div>
-          </div>
-        </nav>
+
+            <ul className="mobile-nav-list">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                
+                return (
+                  <li key={item.path}>
+                    <Link
+                      to={item.path}
+                      className={`mobile-nav-link ${isActive ? 'active' : ''}`}
+                      onClick={toggleNav}
+                    >
+                      <Icon className="nav-icon" />
+                      <span>{item.label}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="mobile-nav-footer">
+              <div className="social-links">
+                <a
+                  href="https://linkedin.com/in/jaytirthjoshi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  aria-label="LinkedIn"
+                >
+                  <FaUser />
+                </a>
+                <a
+                  href="https://health-sathi.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link"
+                  aria-label="HealthSathi"
+                >
+                  <FaHome />
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
       </div>
     </>
   );
 };
 
-export default MobileNav; 
+export default MobileNav;

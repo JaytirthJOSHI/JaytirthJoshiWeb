@@ -2,7 +2,7 @@
 // This component will be re-enabled when react-helmet is properly configured
 
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 interface SEOProps {
   title?: string;
