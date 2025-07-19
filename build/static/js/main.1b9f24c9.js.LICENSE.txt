@@ -5,12 +5,6 @@
 * @license MIT
 */
 
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
 /*!
 	Copyright (c) 2018 Jed Watson.
 	Licensed under the MIT License (MIT), see
