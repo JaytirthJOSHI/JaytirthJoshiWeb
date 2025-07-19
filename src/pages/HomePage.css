@@ -555,29 +555,7 @@
   background-color: rgba(248, 113, 113, 0.1);
 }
 
-/* .background-switcher {
-  position: fixed;
-  top: 20px;
-  right: 120px;
-  z-index: 1000;
-}
-
-.background-switcher button {
-  background-color: #0a192f;
-  color: #f87171;
-  border: 1px solid #f87171;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: 1.2em;
-}
-
-.background-switcher button:hover {
-  background-color: rgba(248, 113, 113, 0.1);
-  transform: rotate(180deg);
-  box-shadow: 0 0 20px rgba(248, 113, 113, 0.3);
-} */
+/* Background switcher commented out */
 
 /* Mobile Navigation */
 .mobile-nav-toggle {
@@ -701,10 +679,7 @@
     right: 80px;
   }
 
-  /* .background-switcher {
-    top: 20px;
-    right: 20px;
-  } */
+  /* Background switcher commented out */
 
   .content-overlay h1 {
     font-size: 2.5em;

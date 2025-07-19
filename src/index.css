@@ -30,160 +30,10 @@ html {
   overflow-x: hidden;
 }
 
-/* Commented out other backgrounds - only using DNA theme
-Background Option 1: Medical Innovation (default)
-.page-wrapper.bg-medical::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(3px 3px at 30px 50px, rgba(34, 197, 94, 0.4), transparent),
-    radial-gradient(2px 2px at 80px 30px, rgba(59, 130, 246, 0.3), transparent),
-    radial-gradient(1px 1px at 150px 80px, rgba(168, 85, 247, 0.3), transparent),
-    radial-gradient(2px 2px at 200px 120px, rgba(34, 197, 94, 0.2), transparent);
-  background-size: 300px 200px, 250px 150px, 200px 180px, 280px 160px;
-  animation: medicalFlow 12s ease-in-out infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes medicalFlow {
-  0%, 100% { 
-    opacity: 0.6;
-    transform: translateX(0) translateY(0) scale(1);
-  }
-  33% { 
-    opacity: 0.8;
-    transform: translateX(-10px) translateY(5px) scale(1.02);
-  }
-  66% { 
-    opacity: 0.7;
-    transform: translateX(10px) translateY(-5px) scale(0.98);
-  }
-}
-
-Background Option 2: Vital Signs
-.page-wrapper.bg-heartbeat::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    linear-gradient(90deg, rgba(239, 68, 68, 0.3) 2px, transparent 2px),
-    linear-gradient(0deg, rgba(34, 197, 94, 0.2) 1px, transparent 1px);
-  background-size: 50px 50px, 100px 25px;
-  animation: vitalSigns 4s ease-in-out infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes vitalSigns {
-  0%, 100% { 
-    transform: translateX(0);
-    opacity: 0.4; 
-  }
-  25% { 
-    transform: translateX(-20px);
-    opacity: 0.7; 
-  }
-  50% { 
-    transform: translateX(0);
-    opacity: 0.5; 
-  }
-  75% { 
-    transform: translateX(20px);
-    opacity: 0.8; 
-  }
-}
-
-.page-wrapper.bg-heartbeat::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 70% 70%, rgba(34, 197, 94, 0.12) 0%, transparent 40%);
-  animation: heartbeatPulse 2s ease-in-out infinite;
-  z-index: 0;
-  pointer-events: none;
-}
-
-@keyframes heartbeatPulse {
-  0%, 100% { 
-    opacity: 0.3;
-    transform: scale(1); 
-  }
-  15% { 
-    opacity: 0.8;
-    transform: scale(1.02); 
-  }
-  30% { 
-    opacity: 0.4;
-    transform: scale(0.98); 
-  }
-  45% { 
-    opacity: 0.9;
-    transform: scale(1.03); 
-  }
-  60% { 
-    opacity: 0.3;
-    transform: scale(1); 
-  }
-}
-*/
+/* Commented out other backgrounds - only using DNA theme */
 
 /* DNA Helix Background - Dark Mode */
-/* .page-wrapper.bg-dna.theme-dark::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 30px,
-      rgba(168, 85, 247, 0.2) 30px,
-      rgba(168, 85, 247, 0.2) 32px
-    ),
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 30px,
-      rgba(59, 130, 246, 0.2) 30px,
-      rgba(59, 130, 246, 0.2) 32px
-    );
-  animation: dnaHelixRotation 20s linear infinite;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.page-wrapper.bg-dna.theme-dark::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: 
-    radial-gradient(4px 4px at 50px 100px, rgba(168, 85, 247, 0.4), transparent),
-    radial-gradient(3px 3px at 150px 50px, rgba(59, 130, 246, 0.4), transparent),
-    radial-gradient(2px 2px at 250px 150px, rgba(168, 85, 247, 0.3), transparent);
-  background-size: 300px 200px, 200px 300px, 400px 250px;
-  animation: dnaParticles 15s ease-in-out infinite;
-  z-index: 1;
-  pointer-events: none;
-}
+/* DNA Helix Background - Dark Mode (commented out) */
 
 /* DNA Helix Background - Light Mode */
 .page-wrapper.bg-dna.theme-light::before {
@@ -245,15 +95,6 @@ Background Option 2: Vital Signs
     transform: translateY(-20px) scale(1.1);
   }
 } */
-
-/* 
-Commented out other backgrounds - only using DNA theme
-
-Background Option 4: Neural Health 
-Background Option 5: Health Ecosystem 
-Background Option 6: Executive Suite 
-All commented out since we're only using DNA theme
-*/
 
 /* Default fallback - simple dark background */
 body {
