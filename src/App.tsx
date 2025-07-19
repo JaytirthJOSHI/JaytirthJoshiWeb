@@ -8,8 +8,8 @@ import PatentAccessPage from './pages/PatentAccessPage';
 import PatentSummaryPage from './pages/PatentSummaryPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
-import ApiDataPage from './pages/ApiDataPage';
-import BookPage from './pages/BookPage';
+// import ApiDataPage from './pages/ApiDataPage';
+// import BookPage from './pages/BookPage';
 import './App.css';
 import AppWithSuspense from './pages/HomePage';
 import TravelMapPage from './pages/TravelMapPage';
@@ -18,6 +18,9 @@ import GoogleAnalytics from './components/GoogleAnalytics';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import BackToTop from './components/BackToTop';
 import Navbar from './components/Navbar';
+import AIAssistant from './components/AIAssistant';
+import AIShowcasePage from './pages/AIShowcasePage';
+import MeowLangPage from './pages/MeowLangPage';
 import { ThemeProvider } from './contexts/ThemeContext';
 import NotFoundPage from './pages/NotFoundPage';
 import CookiesPage from './pages/CookiesPage';
@@ -47,15 +50,15 @@ class ErrorBoundary extends React.Component<
           role="alert"
           aria-live="polite"
           style={{ 
-            padding: '2rem', 
-            textAlign: 'center', 
-            color: '#e6f1ff',
-            backgroundColor: '#0a192f',
-            minHeight: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center'
+          padding: '2rem', 
+          textAlign: 'center', 
+          color: '#e6f1ff',
+          backgroundColor: '#0a192f',
+          minHeight: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center'
           }}
         >
           <h1>Something went wrong</h1>
@@ -90,23 +93,23 @@ const LoadingSpinner = () => (
     aria-live="polite"
     aria-label="Loading content"
     style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      height: '100vh',
-      backgroundColor: '#0a192f',
-      color: '#64ffda'
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh',
+    backgroundColor: '#0a192f',
+    color: '#64ffda'
     }}
   >
     <div 
       aria-hidden="true"
       style={{
-        width: '50px',
-        height: '50px',
-        border: '3px solid #64ffda',
-        borderTop: '3px solid transparent',
-        borderRadius: '50%',
-        animation: 'spin 1s linear infinite'
+      width: '50px',
+      height: '50px',
+      border: '3px solid #64ffda',
+      borderTop: '3px solid transparent',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite'
       }}
     ></div>
     <span className="sr-only">Loading...</span>
@@ -143,8 +146,10 @@ const App: React.FC = () => {
                 </Route>
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/chat" element={<ChatPage />} />
-                <Route path="/api-data" element={<ApiDataPage />} />
-                <Route path="/book" element={<BookPage />} />
+                <Route path="/ai-showcase" element={<AIShowcasePage />} />
+                <Route path="/meowlang" element={<MeowLangPage />} />
+                {/* <Route path="/api-data" element={<ApiDataPage />} /> */}
+                {/* <Route path="/book" element={<BookPage />} /> */}
                 <Route path="/patent-access" element={<PatentAccessPage />} />
                 <Route path="/patent-summary" element={<PatentSummaryPage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
@@ -156,6 +161,7 @@ const App: React.FC = () => {
             </Suspense>
           </main>
           <BackToTop />
+          <AIAssistant />
         </Router>
       </ThemeProvider>
     </ErrorBoundary>

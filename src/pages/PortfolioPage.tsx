@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { FaExternalLinkAlt, FaGithub, FaRocket } from 'react-icons/fa';
+import PortfolioPageSEO from '../components/PortfolioPageSEO';
 import './PortfolioPage.css';
 
 const PortfolioPage: React.FC = () => {
@@ -37,11 +38,24 @@ const PortfolioPage: React.FC = () => {
       githubUrl: null,
       liveUrl: null,
       featured: false
+    },
+    {
+      id: 'meowlang',
+      title: 'MeowLang',
+      description: 'Feline-Friendly Programming Language',
+      longDescription: 'A creative esoteric programming language where every command sounds like a cat! Perfect for educational programming and making coding fun.',
+      technologies: ['JavaScript', 'Esoteric Programming', 'Educational Tech', 'Web Development'],
+      image: '/api/placeholder/400/250',
+      githubUrl: 'https://github.com/JaytirthJOSHI/meowlang',
+      liveUrl: 'http://meow.joshi1.com',
+      featured: true
     }
   ];
 
   return (
-    <div className="portfolio-container">
+    <>
+      <PortfolioPageSEO />
+      <div className="portfolio-container">
       <div className="portfolio-header">
         <h1>Portfolio</h1>
         <p>Explore my projects and innovations in healthcare technology and AI</p>
@@ -90,6 +104,7 @@ const PortfolioPage: React.FC = () => {
       {/* Nested route outlet */}
       <Outlet />
     </div>
+    </>
   );
 };
 

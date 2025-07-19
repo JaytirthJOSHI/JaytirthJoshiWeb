@@ -22,7 +22,7 @@ const SEO: React.FC<SEOProps> = ({
   title = 'Jaytirth Joshi - CEO & Founder of HealthSathi | AI/ML Expert',
   description = 'Jaytirth Joshi is the CEO and Founder of HealthSathi, an AI-powered healthcare platform. Expert in AI/ML, healthcare technology, and medical innovation.',
   keywords = 'Jaytirth Joshi, HealthSathi, AI healthcare, medical technology, CEO, founder, artificial intelligence, machine learning, healthcare innovation',
-  image = '/jaytirth-joshi-professional-headshot.png',
+  image = '/images/jaytirth-joshi-professional-headshot.webp',
   url = 'https://jaytirthjoshi.com',
   type = 'website',
   author = 'Jaytirth Joshi',
@@ -76,6 +76,9 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Jaytirth Joshi - CEO & Founder of HealthSathi" />
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content="Jaytirth Joshi Portfolio" />
@@ -86,11 +89,13 @@ const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImageUrl} />
+      <meta name="twitter:image:alt" content="Jaytirth Joshi - CEO & Founder of HealthSathi" />
       <meta name="twitter:creator" content="@jaytirthjoshi" />
       <meta name="twitter:site" content="@jaytirthjoshi" />
 
       {/* Additional Meta Tags */}
-      <meta name="robots" content="index, follow" />
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta name="googlebot" content="index, follow" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="theme-color" content="#0a192f" />
       <meta name="msapplication-TileColor" content="#0a192f" />
@@ -117,7 +122,7 @@ const SEO: React.FC<SEOProps> = ({
             },
             alumniOf: {
               '@type': 'Organization',
-              name: 'Various Medical Institutions'
+              name: 'Walton High School'
             },
             knowsAbout: [
               'Artificial Intelligence',
@@ -125,13 +130,16 @@ const SEO: React.FC<SEOProps> = ({
               'Healthcare Technology',
               'Medical Innovation',
               'AI in Healthcare',
-              'Startup Leadership'
+              'Startup Leadership',
+              'Medical AI',
+              'Healthcare Communication'
             ],
             sameAs: [
               'https://linkedin.com/in/jaytirthjoshi',
               'https://github.com/jaytirthjoshi',
               'https://twitter.com/jaytirthjoshi'
-            ]
+            ],
+            description: 'Jaytirth Joshi is the visionary CEO and Founder of HealthSathi, revolutionizing healthcare with AI-powered medical report explanations.'
           })}
         </script>
       )}

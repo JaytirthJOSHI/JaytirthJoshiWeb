@@ -1,9 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaPhone, FaGithub } from 'react-icons/fa';
+import { FaSun, FaMoon } from 'react-icons/fa';
+import { useTheme } from '../contexts/ThemeContext';
 import './Navbar.css';
 
 const Navbar: React.FC = () => {
+  const { theme, setTheme, isDark } = useTheme();
+
+  const toggleTheme = () => {
+    if (theme === 'system') {
+      setTheme(isDark ? 'light' : 'dark');
+    } else if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('system');
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -14,20 +27,15 @@ const Navbar: React.FC = () => {
         </div>
         
         <div className="navbar-links">
-          <Link 
-            to="/book" 
-            className="nav-link"
-            title="Book a Call"
+          <button 
+            onClick={toggleTheme}
+            className="nav-link theme-toggle"
+            title={theme === 'system' ? `System Mode (${isDark ? 'Dark' : 'Light'})` : (isDark ? "Switch to Light Mode" : "Switch to Dark Mode")}
+            aria-label={theme === 'system' ? `System Mode (${isDark ? 'Dark' : 'Light'})` : (isDark ? "Switch to Light Mode" : "Switch to Dark Mode")}
           >
-            <FaPhone /> Book a Call
-          </Link>
-          <Link 
-            to="/api-data" 
-            className="nav-link"
-            title="View GitHub Activity"
-          >
-            <FaGithub /> View My GitHub Activity
-          </Link>
+            {isDark ? <FaSun /> : <FaMoon />}
+            {theme === 'system' ? ` System (${isDark ? 'Dark' : 'Light'})` : (isDark ? ' Light Mode' : ' Dark Mode')}
+          </button>
           <Link 
             to="/cookies" 
             className="nav-link"

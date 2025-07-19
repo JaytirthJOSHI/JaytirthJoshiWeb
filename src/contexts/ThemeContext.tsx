@@ -25,7 +25,7 @@ interface ThemeProviderProps {
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     const saved = localStorage.getItem('theme');
-    return (saved as Theme) || 'system';
+    return (saved as Theme) || 'dark';
   });
 
   const [isDark, setIsDark] = useState(false);

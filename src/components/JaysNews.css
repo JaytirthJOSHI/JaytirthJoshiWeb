@@ -35,16 +35,16 @@
 
 .news-header h2 {
   font-size: clamp(2.5rem, 6vw, 4rem);
-  color: #64ffda;
+  color: #f87171;
   margin-bottom: 1.5rem;
   font-weight: 700;
-  text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+  text-shadow: 0 0 20px rgba(248, 113, 113, 0.3);
   animation: glow 3s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 20px rgba(100, 255, 218, 0.3); }
-  to { text-shadow: 0 0 30px rgba(100, 255, 218, 0.6), 0 0 40px rgba(100, 255, 218, 0.3); }
+  from { text-shadow: 0 0 20px rgba(248, 113, 113, 0.3); }
+  to { text-shadow: 0 0 30px rgba(248, 113, 113, 0.6), 0 0 40px rgba(248, 113, 113, 0.3); }
 }
 
 .news-header p {
@@ -67,7 +67,7 @@
 
 .news-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.1);
   border-radius: 20px;
   padding: 2rem;
   cursor: pointer;
@@ -91,7 +91,7 @@
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #64ffda, #00d4ff, #64ffda);
+  background: linear-gradient(90deg, #f87171, #ef4444, #f87171);
   background-size: 200% 100%;
   transform: scaleX(0);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -110,7 +110,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(100, 255, 218, 0.1) 0%, transparent 50%);
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(248, 113, 113, 0.1) 0%, transparent 50%);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -127,18 +127,18 @@
 
 .news-card:hover {
   transform: translateY(-12px) scale(1.02);
-  border-color: rgba(100, 255, 218, 0.4);
-  box-shadow: 0 25px 50px rgba(100, 255, 218, 0.15), 0 0 0 1px rgba(100, 255, 218, 0.1);
+  border-color: rgba(248, 113, 113, 0.4);
+  box-shadow: 0 25px 50px rgba(248, 113, 113, 0.15), 0 0 0 1px rgba(248, 113, 113, 0.1);
 }
 
 .news-card.active {
   transform: translateY(-12px) scale(1.02);
-  border-color: rgba(100, 255, 218, 0.6);
-  box-shadow: 0 25px 50px rgba(100, 255, 218, 0.25), 0 0 0 1px rgba(100, 255, 218, 0.2);
+  border-color: rgba(248, 113, 113, 0.6);
+  box-shadow: 0 25px 50px rgba(248, 113, 113, 0.25), 0 0 0 1px rgba(248, 113, 113, 0.2);
 }
 
 .news-card:focus-within {
-  outline: 2px solid #64ffda;
+  outline: 2px solid #f87171;
   outline-offset: 2px;
 }
 
@@ -156,8 +156,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(100, 255, 218, 0.1);
-  border: 2px solid rgba(100, 255, 218, 0.2);
+  background: rgba(248, 113, 113, 0.1);
+  border: 2px solid rgba(248, 113, 113, 0.2);
   flex-shrink: 0;
   transition: all 0.3s ease;
   position: relative;
@@ -172,7 +172,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, rgba(248, 113, 113, 0.1), transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -182,21 +182,21 @@
 }
 
 .news-card:hover .news-icon-container {
-  background: rgba(100, 255, 218, 0.15);
-  border-color: rgba(100, 255, 218, 0.3);
+  background: rgba(248, 113, 113, 0.15);
+  border-color: rgba(248, 113, 113, 0.3);
   transform: scale(1.1);
 }
 
 .news-icon {
   font-size: 1.75rem;
-  color: #64ffda;
+  color: #f87171;
   transition: all 0.3s ease;
-  filter: drop-shadow(0 0 8px rgba(100, 255, 218, 0.3));
+  filter: drop-shadow(0 0 8px rgba(248, 113, 113, 0.3));
 }
 
 .news-card:hover .news-icon {
   transform: scale(1.1);
-  filter: drop-shadow(0 0 12px rgba(100, 255, 218, 0.5));
+  filter: drop-shadow(0 0 12px rgba(248, 113, 113, 0.5));
 }
 
 .news-meta {
@@ -214,7 +214,7 @@
 }
 
 .news-card:hover .news-meta h3 {
-  background: linear-gradient(45deg, #64ffda, #00d4ff);
+  background: linear-gradient(45deg, #f87171, #ef4444);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -238,7 +238,7 @@
 
 .news-date svg {
   font-size: 0.85rem;
-  color: #64ffda;
+  color: #f87171;
 }
 
 .news-content {
@@ -264,7 +264,7 @@
 }
 
 .news-link {
-  color: #64ffda;
+  color: #f87171;
   text-decoration: none;
   font-weight: 600;
   display: inline-flex;
@@ -273,8 +273,8 @@
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  background: rgba(100, 255, 218, 0.1);
-  border: 1px solid rgba(100, 255, 218, 0.2);
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.2);
   position: relative;
   overflow: hidden;
 }
@@ -286,7 +286,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(248, 113, 113, 0.2), transparent);
   transition: left 0.5s ease;
 }
 
@@ -295,11 +295,11 @@
 }
 
 .news-link:hover {
-  color: #00d4ff;
+  color: #ef4444;
   transform: translateX(6px);
-  background: rgba(100, 255, 218, 0.15);
-  border-color: rgba(100, 255, 218, 0.3);
-  box-shadow: 0 4px 12px rgba(100, 255, 218, 0.2);
+  background: rgba(248, 113, 113, 0.15);
+  border-color: rgba(248, 113, 113, 0.3);
+  box-shadow: 0 4px 12px rgba(248, 113, 113, 0.2);
 }
 
 .news-category-badge {
@@ -347,7 +347,7 @@
   padding: 3rem;
   background: rgba(255, 255, 255, 0.03);
   border-radius: 20px;
-  border: 1px solid rgba(100, 255, 218, 0.15);
+  border: 1px solid rgba(248, 113, 113, 0.15);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   position: relative;
@@ -357,7 +357,7 @@
 
 .news-footer:hover {
   background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(100, 255, 218, 0.25);
+  border-color: rgba(248, 113, 113, 0.25);
   transform: translateY(-2px);
 }
 
@@ -369,7 +369,7 @@
 }
 
 .news-footer strong {
-  color: #64ffda;
+  color: #f87171;
   font-weight: 700;
 }
 
@@ -410,7 +410,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(248, 113, 113, 0.1), transparent);
   animation: loading 1.5s infinite;
 }
 

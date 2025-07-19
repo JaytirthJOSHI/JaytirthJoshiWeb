@@ -5,16 +5,17 @@ const PortfolioPageSEO: React.FC = () => {
   return (
     <SEO
       title="Portfolio - Jaytirth Joshi | Healthcare AI Projects & Innovations"
-      description="Explore Jaytirth Joshi's portfolio of healthcare AI projects, medical innovations, and technological breakthroughs. From HealthSathi to medical research, discover cutting-edge healthcare solutions."
-      keywords="Jaytirth Joshi portfolio, healthcare AI projects, medical innovations, HealthSathi projects, AI healthcare solutions, medical technology portfolio, healthcare startup projects"
+      description="Explore Jaytirth Joshi's portfolio of healthcare AI projects, including HealthSathi, Dr. Fatafat, and medical innovation patents. View his work in AI/ML, healthcare technology, and medical innovation."
+      keywords="Jaytirth Joshi portfolio, healthcare AI projects, HealthSathi, Dr. Fatafat, medical AI, healthcare innovation, AI projects, medical technology portfolio, healthcare startup projects"
       type="website"
-      section="Portfolio"
       tags={[
         'Healthcare AI',
-        'Medical Projects',
+        'Medical Innovation',
+        'AI Projects',
+        'Healthcare Technology',
         'Portfolio',
-        'Innovation',
-        'Healthcare Technology'
+        'Medical AI',
+        'Healthcare Startup'
       ]}
     />
   );

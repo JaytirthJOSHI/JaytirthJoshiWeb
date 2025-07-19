@@ -49,7 +49,8 @@
     "lint": "eslint src --ext .ts,.tsx --fix",
     "format": "prettier --write src/**/*.{ts,tsx,css,json}",
     "type-check": "tsc --noEmit",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "node scripts/optimize-images.js",
+    "validate-seo": "node scripts/validate-seo.js"
   },
   "browserslist": {
     "production": [

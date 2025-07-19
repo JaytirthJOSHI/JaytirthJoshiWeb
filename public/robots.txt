@@ -3,8 +3,32 @@
 User-agent: *
 Allow: /
 
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
+
 # Sitemap location
 Sitemap: https://jaytirthjoshi.com/sitemap.xml
 
 # Crawl delay (optional)
 Crawl-delay: 1
+
+# Additional directives for better SEO
+# Allow indexing of all public content
+Allow: /portfolio/
+Allow: /contact/
+Allow: /ai-showcase/
+Allow: /chat/
+Allow: /patent-access/
+Allow: /patent-summary/
+Allow: /travel-map/
+
+# Block access to development files
+Disallow: /*.js$
+Disallow: /*.css$
+Disallow: /*.map$
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json

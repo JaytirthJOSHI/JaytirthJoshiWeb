@@ -24,7 +24,7 @@
 
 .quotes-header h2 {
   font-size: clamp(2rem, 5vw, 3rem);
-  color: #64ffda;
+  color: #f87171;
   margin-bottom: 1rem;
   font-weight: 700;
 }
@@ -44,7 +44,7 @@
 
 .quote-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.1);
   border-radius: 20px;
   padding: 3rem 2rem 2rem;
   position: relative;
@@ -58,8 +58,8 @@
 }
 
 .quote-card:hover {
-  border-color: rgba(100, 255, 218, 0.3);
-  box-shadow: 0 20px 40px rgba(100, 255, 218, 0.1);
+  border-color: rgba(248, 113, 113, 0.3);
+  box-shadow: 0 20px 40px rgba(248, 113, 113, 0.1);
   transform: translateY(-5px);
 }
 
@@ -70,7 +70,7 @@
 
 .quote-icon {
   position: absolute;
-  color: #64ffda;
+  color: #f87171;
   opacity: 0.3;
   transition: all 0.3s ease;
 }
@@ -121,7 +121,7 @@
 }
 
 .quote-author h4 {
-  color: #64ffda;
+  color: #f87171;
   font-size: 1.1rem;
   margin: 0;
   font-weight: 600;
@@ -142,9 +142,9 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: rgba(100, 255, 218, 0.1);
-  border: 1px solid rgba(100, 255, 218, 0.2);
-  color: #64ffda;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  color: #f87171;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -157,8 +157,8 @@
 }
 
 .refresh-button:hover:not(:disabled) {
-  background: rgba(100, 255, 218, 0.2);
-  border-color: rgba(100, 255, 218, 0.4);
+  background: rgba(248, 113, 113, 0.2);
+  border-color: rgba(248, 113, 113, 0.4);
   transform: scale(1.1);
 }
 
@@ -186,7 +186,7 @@
   padding: 2rem;
   background: rgba(255, 255, 255, 0.02);
   border-radius: 12px;
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.1);
 }
 
 .quotes-footer p {

@@ -15,15 +15,15 @@
   height: 80px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid #64ffda;
-  box-shadow: 0 8px 25px rgba(100, 255, 218, 0.3);
+  border: 3px solid #f87171;
+  box-shadow: 0 8px 25px rgba(248, 113, 113, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .profile-photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 35px rgba(100, 255, 218, 0.4);
-  border-color: #00d4aa;
+  box-shadow: 0 12px 35px rgba(248, 113, 113, 0.4);
+  border-color: #fca5a5;
 }
 
 .profile-photo img {
@@ -45,20 +45,20 @@
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
+  background: rgba(248, 113, 113, 0.1);
+  color: #f87171;
   border-radius: 50%;
   text-decoration: none;
-  border: 2px solid #64ffda;
+  border: 2px solid #f87171;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 1.2rem;
 }
 
 .social-icons a:hover {
-  background: #64ffda;
+  background: #f87171;
   color: #0a192f;
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(100, 255, 218, 0.3);
+  box-shadow: 0 8px 20px rgba(248, 113, 113, 0.3);
 }
 
 .social-icons a:active {

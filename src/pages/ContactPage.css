@@ -14,9 +14,9 @@
 .contact-header h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #64ffda;
+  color: #f87171;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, #64ffda, #8892b0);
+  background: linear-gradient(45deg, #f87171, #8892b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -62,14 +62,14 @@
 }
 
 .contact-item:hover {
-  border-color: #64ffda;
+  border-color: #f87171;
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .contact-icon {
   font-size: 1.5rem;
-  color: #64ffda;
+  color: #f87171;
   min-width: 24px;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .contact-item a:hover {
-  color: #64ffda;
+  color: #f87171;
 }
 
 .contact-form-container {
@@ -131,8 +131,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #64ffda;
-  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.1);
+  border-color: #f87171;
+  box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.1);
 }
 
 .form-group input::placeholder,
@@ -141,7 +141,7 @@
 }
 
 .submit-button {
-  background: linear-gradient(45deg, #64ffda, #00d4aa);
+  background: linear-gradient(45deg, #f87171, #ef4444);
   color: #0a192f;
   border: none;
   padding: 1rem 2rem;
@@ -155,7 +155,7 @@
 
 .submit-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(100, 255, 218, 0.3);
+  box-shadow: 0 8px 20px rgba(248, 113, 113, 0.3);
 }
 
 .submit-button:active {
@@ -175,7 +175,7 @@
 }
 
 .contact-footer h3 {
-  color: #64ffda;
+  color: #f87171;
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }

@@ -11,6 +11,7 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
+/* Dynamic Background System */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,11 +19,349 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #0a192f;
   color: #e6f1ff;
   line-height: 1.6;
-  font-size: 16px; /* Minimum readable font size for mobile */
+  font-size: 16px;
   counter-reset: section;
+}
+
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Commented out other backgrounds - only using DNA theme
+Background Option 1: Medical Innovation (default)
+.page-wrapper.bg-medical::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(3px 3px at 30px 50px, rgba(34, 197, 94, 0.4), transparent),
+    radial-gradient(2px 2px at 80px 30px, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(1px 1px at 150px 80px, rgba(168, 85, 247, 0.3), transparent),
+    radial-gradient(2px 2px at 200px 120px, rgba(34, 197, 94, 0.2), transparent);
+  background-size: 300px 200px, 250px 150px, 200px 180px, 280px 160px;
+  animation: medicalFlow 12s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes medicalFlow {
+  0%, 100% { 
+    opacity: 0.6;
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  33% { 
+    opacity: 0.8;
+    transform: translateX(-10px) translateY(5px) scale(1.02);
+  }
+  66% { 
+    opacity: 0.7;
+    transform: translateX(10px) translateY(-5px) scale(0.98);
+  }
+}
+
+Background Option 2: Vital Signs
+.page-wrapper.bg-heartbeat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(90deg, rgba(239, 68, 68, 0.3) 2px, transparent 2px),
+    linear-gradient(0deg, rgba(34, 197, 94, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px, 100px 25px;
+  animation: vitalSigns 4s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes vitalSigns {
+  0%, 100% { 
+    transform: translateX(0);
+    opacity: 0.4; 
+  }
+  25% { 
+    transform: translateX(-20px);
+    opacity: 0.7; 
+  }
+  50% { 
+    transform: translateX(0);
+    opacity: 0.5; 
+  }
+  75% { 
+    transform: translateX(20px);
+    opacity: 0.8; 
+  }
+}
+
+.page-wrapper.bg-heartbeat::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 70% 70%, rgba(34, 197, 94, 0.12) 0%, transparent 40%);
+  animation: heartbeatPulse 2s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes heartbeatPulse {
+  0%, 100% { 
+    opacity: 0.3;
+    transform: scale(1); 
+  }
+  15% { 
+    opacity: 0.8;
+    transform: scale(1.02); 
+  }
+  30% { 
+    opacity: 0.4;
+    transform: scale(0.98); 
+  }
+  45% { 
+    opacity: 0.9;
+    transform: scale(1.03); 
+  }
+  60% { 
+    opacity: 0.3;
+    transform: scale(1); 
+  }
+}
+*/
+
+/* DNA Helix Background - Dark Mode */
+/* .page-wrapper.bg-dna.theme-dark::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(168, 85, 247, 0.2) 30px,
+      rgba(168, 85, 247, 0.2) 32px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(59, 130, 246, 0.2) 30px,
+      rgba(59, 130, 246, 0.2) 32px
+    );
+  animation: dnaHelixRotation 20s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page-wrapper.bg-dna.theme-dark::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(4px 4px at 50px 100px, rgba(168, 85, 247, 0.4), transparent),
+    radial-gradient(3px 3px at 150px 50px, rgba(59, 130, 246, 0.4), transparent),
+    radial-gradient(2px 2px at 250px 150px, rgba(168, 85, 247, 0.3), transparent);
+  background-size: 300px 200px, 200px 300px, 400px 250px;
+  animation: dnaParticles 15s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* DNA Helix Background - Light Mode */
+.page-wrapper.bg-dna.theme-light::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(168, 85, 247, 0.3) 30px,
+      rgba(168, 85, 247, 0.3) 32px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 30px,
+      rgba(59, 130, 246, 0.3) 30px,
+      rgba(59, 130, 246, 0.3) 32px
+    );
+  animation: dnaHelixRotation 20s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.page-wrapper.bg-dna.theme-light::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: 
+    radial-gradient(4px 4px at 50px 100px, rgba(168, 85, 247, 0.5), transparent),
+    radial-gradient(3px 3px at 150px 50px, rgba(59, 130, 246, 0.5), transparent),
+    radial-gradient(2px 2px at 250px 150px, rgba(168, 85, 247, 0.4), transparent);
+  background-size: 300px 200px, 200px 300px, 400px 250px;
+  animation: dnaParticles 15s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes dnaHelixRotation {
+  0% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(0) rotate(360deg); }
+}
+
+@keyframes dnaParticles {
+  0%, 100% { 
+    opacity: 0.4;
+    transform: translateY(0) scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: translateY(-20px) scale(1.1);
+  }
+} */
+
+/* 
+Commented out other backgrounds - only using DNA theme
+
+Background Option 4: Neural Health 
+Background Option 5: Health Ecosystem 
+Background Option 6: Executive Suite 
+All commented out since we're only using DNA theme
+*/
+
+/* Default fallback - simple dark background */
+body {
+  background: #0a192f;
+  position: relative;
+}
+
+/* Theme-specific text colors and component styles */
+.theme-light .profile-section {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  color: #1e293b;
+}
+
+.theme-light .profile-section h2 {
+  color: #dc2626; /* Red accent for light mode */
+}
+
+.theme-light .profile-section p {
+  color: #475569;
+}
+
+.theme-light .job {
+  background-color: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #334155;
+}
+
+.theme-light .job:hover {
+  background-color: rgba(241, 245, 249, 0.9);
+}
+
+.theme-light .cta-button {
+  color: #dc2626; /* Red accent */
+  border-color: #dc2626;
+}
+
+.theme-light .cta-button:hover {
+  background-color: rgba(220, 38, 38, 0.1);
+}
+
+.theme-light .content-overlay h1 {
+  color: #1e293b;
+}
+
+.theme-light .content-overlay h2 {
+  color: #475569;
+}
+
+.theme-light .content-overlay .tagline {
+  color: #64748b;
+}
+
+/* Dark mode with red accents */
+.theme-dark .profile-section {
+  background-color: #112240;
+  border: 1px solid #2c4a85;
+  color: #e6f1ff;
+}
+
+.theme-dark .profile-section h2 {
+  color: #f87171; /* Softer red for dark mode */
+}
+
+.theme-dark .profile-section p {
+  color: #8892b0;
+}
+
+.theme-dark .job {
+  background-color: #1a2c4e;
+  color: #e6f1ff;
+}
+
+.theme-dark .cta-button {
+  color: #f87171; /* Softer red accent */
+  border-color: #f87171;
+}
+
+.theme-dark .content-overlay h1 {
+  color: #e6f1ff;
+}
+
+.theme-dark .content-overlay h2 {
+  color: #8892b0;
+}
+
+.theme-dark .content-overlay .tagline {
+  color: #8892b0;
+}
+
+/* Notification animation */
+@keyframes slideInFade {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  90% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
 }
 
 /* Mobile-optimized touch targets */
@@ -129,8 +468,8 @@ input, textarea, select {
 
 input:focus, textarea:focus, select:focus {
   outline: none;
-  border-color: #64ffda;
-  box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+  border-color: #f87171;
+  box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.2);
 }
 
 /* Mobile-optimized images */
@@ -190,7 +529,7 @@ img {
 
 /* Mobile-optimized focus states */
 *:focus {
-  outline: 2px solid #64ffda;
+  outline: 2px solid #f87171;
   outline-offset: 2px;
 }
 
@@ -212,7 +551,7 @@ img {
   position: absolute;
   top: -40px;
   left: 6px;
-  background: #64ffda;
+  background: #f87171;
   color: #0a192f;
   padding: 8px;
   text-decoration: none;

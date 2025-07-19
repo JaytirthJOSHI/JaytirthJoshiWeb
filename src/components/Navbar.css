@@ -20,7 +20,7 @@
 }
 
 .navbar-brand .brand-link {
-  color: #64ffda;
+  color: #f87171;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
@@ -28,7 +28,7 @@
 }
 
 .navbar-brand .brand-link:hover {
-  color: #00d4aa;
+  color: #fca5a5;
 }
 
 .navbar-links {
@@ -52,14 +52,31 @@
 }
 
 .nav-link:hover {
-  color: #64ffda;
-  background: rgba(100, 255, 218, 0.1);
-  border-color: #64ffda;
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: #f87171;
   transform: translateY(-1px);
 }
 
 .nav-link svg {
   font-size: 1rem;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme-toggle:hover {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: #f87171;
+  transform: translateY(-1px);
 }
 
 /* Mobile Responsive */

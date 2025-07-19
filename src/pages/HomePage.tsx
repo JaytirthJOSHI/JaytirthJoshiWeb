@@ -5,14 +5,21 @@ import type { Engine, ISourceOptions } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim"; 
 import { Fade, Slide } from 'react-awesome-reveal';
 import { useTranslation } from 'react-i18next';
-import { FaMagic, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { useTheme } from '../contexts/ThemeContext';
 import './HomePage.css';
 import SocialLinks from '../components/SocialLinks';
 import JaysNews from '../components/JaysNews';
 import InspirationalQuotes from '../components/InspirationalQuotes';
+import SentimentAnalyzer from '../components/SentimentAnalyzer';
+import MedicalAIGenerator from '../components/MedicalAIGenerator';
+import HomePageSEO from '../components/HomePageSEO';
 import profileSuitImage from '../assets/Images/jaytirth-joshi-professional-headshot.png';
 import profileCasualImage from '../assets/Images/jaytirth-joshi-casual-portrait.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
+
+// DNA Helix theme - the chosen background
+// Other themes commented out since we're only using DNA 
 
 const repulsiveOptions: ISourceOptions = {
   background: {
@@ -77,71 +84,7 @@ const repulsiveOptions: ISourceOptions = {
   detectRetina: true,
 };
 
-const grabOptions: ISourceOptions = {
-  background: {
-    color: {
-      value: "#0a192f",
-    },
-  },
-  fpsLimit: 60,
-  interactivity: {
-    events: {
-      onHover: {
-        enable: true,
-        mode: "grab",
-      },
-      onClick: {
-        enable: true,
-        mode: "push",
-      },
-      resize: true,
-    },
-    modes: {
-      grab: {
-        distance: 140,
-        links: {
-          opacity: 1,
-        },
-      },
-      push: {
-        quantity: 4,
-      },
-    },
-  },
-  particles: {
-    color: {
-      value: "#ff4136",
-    },
-    links: {
-      color: "#ffffff",
-      distance: 150,
-      enable: true,
-      opacity: 0.4,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 1,
-    },
-    number: {
-      density: {
-        enable: true,
-        area: 800,
-      },
-      value: 80,
-    },
-    opacity: {
-      value: 0.5,
-    },
-    shape: {
-      type: "circle",
-    },
-    size: {
-      value: { min: 1, max: 5 },
-    },
-  },
-  detectRetina: true,
-};
+
 
 // Data arrays for your profile
 const experienceData = [
@@ -318,11 +261,37 @@ const useScrollAnimation = () => {
   return animatedElements;
 };
 
+const Loader = () => (
+  <div className="page-wrapper" style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh',
+    backgroundColor: '#0a192f'
+  }}>
+    <div style={{
+      width: '50px',
+      height: '50px',
+      border: '3px solid #64ffda',
+      borderTop: '3px solid transparent',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite'
+    }}></div>
+    <style>{`
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `}</style>
+  </div>
+);
+
 const HomePage: React.FC = () => {
   const { t } = useTranslation();
+  const { isDark } = useTheme();
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
   const [isProfessional, setIsProfessional] = useState(true);
-  const [particleOptions, setParticleOptions] = useState<ISourceOptions>(repulsiveOptions);
+  const [particleOptions] = useState<ISourceOptions>(repulsiveOptions);
   const animatedElements = useScrollAnimation();
 
   const particlesInit = useCallback(async (engine: Engine) => {
@@ -333,32 +302,53 @@ const HomePage: React.FC = () => {
     setExpandedJob(expandedJob === index ? null : index);
   };
 
-  const handleParticleStyleChange = () => {
-    setParticleOptions(currentOptions =>
-      currentOptions.interactivity?.events?.onHover?.mode === 'grab'
-        ? repulsiveOptions
-        : grabOptions
-    );
-  };
-
   const getAnimationClass = (elementId: string, baseClass: string) => {
     return `${baseClass} ${animatedElements.has(elementId) ? 'animate' : ''}`;
   };
 
+  // Get DNA background styles based on theme
+  /* const getDNABackgroundStyle = () => {
+    if (isDarkMode) {
+      return {
+        background: `
+          radial-gradient(circle at 15% 85%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+          linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #581c87 80%, #7c3aed 100%)
+        `
+      };
+    } else {
+      return {
+        background: `
+          radial-gradient(circle at 15% 85%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+          radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+          linear-gradient(135deg, #f8fafc 0%, #e2e8f0 40%, #cbd5e1 80%, #94a3b8 100%)
+        `
+      };
+    }
+  }; */
+
   return (
-    <div className="page-wrapper">
+    <>
+      <HomePageSEO />
+      <div 
+        className={`page-wrapper ${isDark ? 'theme-dark' : 'theme-light'}`}
+        style={{
+          minHeight: '100vh',
+          position: 'relative',
+          color: isDark ? '#e6f1ff' : '#1e293b',
+          transition: 'all 0.3s ease'
+        }}
+      >
       <SocialLinks />
       <MobileNavigation />
       <LanguageSwitcher />
-      <div className="background-switcher">
-        <button onClick={handleParticleStyleChange}><FaMagic /></button>
-      </div>
       <section className="hero-section">
-        <Particles
+        {/* Temporarily hide particles to show new backgrounds */}
+        {false && <Particles
           id="tsparticles"
           init={particlesInit}
           options={particleOptions}
-        />
+        />}
         <div className="content-overlay">
           <Fade direction="down" triggerOnce>
             <h1>{t('hero.name')}</h1>
@@ -379,9 +369,9 @@ const HomePage: React.FC = () => {
           <section id="summary" className={`profile-section with-image ${getAnimationClass('summary', 'scroll-animate')}`}>
             <div className="profile-image-container">
               <img 
-                src={isProfessional ? profileSuitImage : profileCasualImage} 
-                alt={isProfessional ? "Jaytirth Joshi - Professional headshot in business suit" : "Jaytirth Joshi - Casual portrait"} 
-                title={isProfessional ? "Jaytirth Joshi - CEO and Founder of HealthSathi" : "Jaytirth Joshi - AI Innovator and Youth Entrepreneur"}
+                src={isDark ? profileSuitImage : profileCasualImage} 
+                alt={isDark ? "Jaytirth Joshi - Professional headshot in business suit" : "Jaytirth Joshi - Casual portrait"} 
+                title={isDark ? "Jaytirth Joshi - CEO and Founder of HealthSathi" : "Jaytirth Joshi - AI Innovator and Youth Entrepreneur"}
                 className="profile-image"
               />
               <button onClick={() => setIsProfessional(!isProfessional)} className="image-switch-button">
@@ -504,43 +494,25 @@ const HomePage: React.FC = () => {
         
         <JaysNews />
 
+        <SentimentAnalyzer />
+        
+        <MedicalAIGenerator />
+
         <Slide direction="up" triggerOnce>
           <section id="footer" className={`profile-section footer-section ${getAnimationClass('footer', 'scroll-animate')}`}>
             <div className="footer-card">
               <p>&copy; 2025 Jaytirth Joshi. All rights reserved.</p>
-              <p>Built with ❤️ using React & TypeScript</p>
+              <div className="footer-links">
+                <a href="/meowlang" className="footer-link">🐱 MeowLang</a>
+              </div>
             </div>
           </section>
         </Slide>
       </main>
     </div>
+    </>
   );
 };
-
-const Loader = () => (
-  <div className="page-wrapper" style={{ 
-    display: 'flex', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
-    height: '100vh',
-    backgroundColor: '#0a192f'
-  }}>
-    <div style={{
-      width: '50px',
-      height: '50px',
-      border: '3px solid #64ffda',
-      borderTop: '3px solid transparent',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite'
-    }}></div>
-    <style>{`
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-    `}</style>
-  </div>
-);
 
 export default function AppWithSuspense() {
   return (

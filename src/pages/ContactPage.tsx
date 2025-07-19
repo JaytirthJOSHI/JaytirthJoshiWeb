@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaMapMarkerAlt } from 'react-icons/fa';
+import ContactPageSEO from '../components/ContactPageSEO';
 import './ContactPage.css';
 
 const ContactPage: React.FC = () => {
@@ -26,7 +27,9 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="contact-page">
+    <>
+      <ContactPageSEO />
+      <div className="contact-page">
       <div className="contact-header">
         <h1>Get In Touch</h1>
         <p>Let's discuss opportunities, collaborations, or just say hello!</p>
@@ -149,6 +152,7 @@ const ContactPage: React.FC = () => {
         <p>I'm always open to discussing new opportunities, collaborations, or innovative projects. Whether you have a question about my work, want to collaborate, or just want to say hello, I'd love to hear from you!</p>
       </div>
     </div>
+    </>
   );
 };
 

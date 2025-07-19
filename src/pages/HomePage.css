@@ -68,7 +68,7 @@
 
 .content-overlay {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 20px;
   max-width: 1000px;
   animation: fadeInUp 1s ease-out;
@@ -109,10 +109,10 @@
   display: inline-block;
   padding: 15px 30px;
   background-color: transparent;
-  color: #64ffda;
+  color: #f87171;
   text-decoration: none;
   border-radius: 4px;
-  border: 1px solid #64ffda;
+  border: 1px solid #f87171;
   font-size: 1.1em;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -126,7 +126,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(248, 113, 113, 0.2), transparent);
   transition: left 0.5s;
 }
 
@@ -135,9 +135,9 @@
 }
 
 .cta-button:hover {
-  background-color: rgba(100, 255, 218, 0.1);
+  background-color: rgba(248, 113, 113, 0.1);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(100, 255, 218, 0.2);
+  box-shadow: 0 10px 20px rgba(248, 113, 113, 0.2);
 }
 
 .cta-button:active {
@@ -161,6 +161,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
 .profile-section::before {
@@ -181,7 +182,7 @@
 .profile-section:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-  border-color: #64ffda;
+  border-color: #f87171;
 }
 
 .profile-section.with-image {
@@ -202,8 +203,8 @@
 
 .profile-image:hover {
   transform: scale(1.05);
-  border-color: #64ffda;
-  box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+  border-color: #f87171;
+  box-shadow: 0 0 30px rgba(248, 113, 113, 0.3);
 }
 
 .profile-image-container {
@@ -254,7 +255,7 @@
 }
 
 .profile-section h2 {
-  color: #64ffda;
+  color: #f87171;
   font-size: 2em;
   margin-top: 0;
   margin-bottom: 30px;
@@ -264,7 +265,7 @@
 }
 
 .profile-section:hover h2 {
-  color: #7fffd4;
+  color: #fca5a5;
 }
 
 .profile-section h2::before {
@@ -273,14 +274,14 @@
   position: absolute;
   left: 0;
   top: 5px;
-  color: #64ffda;
+  color: #f87171;
   font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
   font-size: 0.8em;
   transition: color 0.3s;
 }
 
 .profile-section:hover h2::before {
-  color: #7fffd4;
+  color: #fca5a5;
 }
 
 .profile-section p {
@@ -330,7 +331,7 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%) rotate(0deg);
-  border: solid #64ffda;
+  border: solid #f87171;
   border-width: 0 2px 2px 0;
   display: inline-block;
   padding: 4px;
@@ -362,11 +363,11 @@
 }
 
 .job:hover h3 {
-  color: #64ffda;
+  color: #f87171;
 }
 
 .job .company {
-  color: #64ffda;
+  color: #f87171;
   font-weight: 500;
   margin-bottom: 5px;
 }
@@ -394,7 +395,7 @@
   content: "▹";
   position: absolute;
   left: 0;
-  color: #64ffda;
+  color: #f87171;
   transition: transform 0.3s;
 }
 
@@ -431,7 +432,7 @@
 
 .skills-list li:hover, .languages-list li:hover {
   background-color: #1e3658;
-  border-left-color: #64ffda;
+  border-left-color: #f87171;
   transform: translateX(5px);
   color: #a8b2d1;
 }
@@ -452,7 +453,7 @@
 
 .skills-list li:hover, .languages-list li:hover {
   background-color: #1e3658;
-  border-left-color: #64ffda;
+  border-left-color: #f87171;
   transform: translateX(5px);
   color: #a8b2d1;
 }
@@ -476,7 +477,7 @@
 }
 
 .contact-section a {
-  color: #64ffda;
+  color: #f87171;
   text-decoration: none;
   transition: all 0.3s;
   position: relative;
@@ -489,7 +490,7 @@
   height: 1px;
   bottom: -2px;
   left: 0;
-  background-color: #64ffda;
+  background-color: #f87171;
   transition: width 0.3s;
 }
 
@@ -498,7 +499,7 @@
 }
 
 .contact-section a:hover {
-  color: #7fffd4;
+  color: #fca5a5;
   transform: translateX(5px);
 }
 
@@ -525,7 +526,7 @@
 }
 
 .education-item:hover h3 {
-  color: #64ffda;
+  color: #f87171;
 }
 
 .education-item p {
@@ -542,8 +543,8 @@
 
 .language-switcher select {
   background-color: #0a192f;
-  color: #64ffda;
-  border: 1px solid #64ffda;
+  color: #f87171;
+  border: 1px solid #f87171;
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
@@ -551,10 +552,10 @@
 }
 
 .language-switcher select:hover {
-  background-color: rgba(100, 255, 218, 0.1);
+  background-color: rgba(248, 113, 113, 0.1);
 }
 
-.background-switcher {
+/* .background-switcher {
   position: fixed;
   top: 20px;
   right: 120px;
@@ -563,8 +564,8 @@
 
 .background-switcher button {
   background-color: #0a192f;
-  color: #64ffda;
-  border: 1px solid #64ffda;
+  color: #f87171;
+  border: 1px solid #f87171;
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
@@ -573,10 +574,10 @@
 }
 
 .background-switcher button:hover {
-  background-color: rgba(100, 255, 218, 0.1);
+  background-color: rgba(248, 113, 113, 0.1);
   transform: rotate(180deg);
-  box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-}
+  box-shadow: 0 0 20px rgba(248, 113, 113, 0.3);
+} */
 
 /* Mobile Navigation */
 .mobile-nav-toggle {
@@ -587,14 +588,14 @@
   z-index: 1001;
   background: none;
   border: none;
-  color: #64ffda;
+  color: #f87171;
   font-size: 1.5em;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .mobile-nav-toggle:hover {
-  color: #7fffd4;
+  color: #fca5a5;
   transform: scale(1.1);
 }
 
@@ -619,7 +620,7 @@
 }
 
 .mobile-nav a, .mobile-nav button {
-  color: #64ffda;
+  color: #f87171;
   text-decoration: none;
   font-size: 1.5em;
   margin: 20px 0;
@@ -641,7 +642,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(248, 113, 113, 0.1), transparent);
   transition: left 0.5s;
 }
 
@@ -650,9 +651,9 @@
 }
 
 .mobile-nav a:hover, .mobile-nav button:hover {
-  border-color: #64ffda;
+  border-color: #f87171;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+  box-shadow: 0 5px 15px rgba(248, 113, 113, 0.2);
 }
 
 /* Scroll-triggered animations */
@@ -700,10 +701,10 @@
     right: 80px;
   }
 
-  .background-switcher {
+  /* .background-switcher {
     top: 20px;
     right: 20px;
-  }
+  } */
 
   .content-overlay h1 {
     font-size: 2.5em;
@@ -806,10 +807,10 @@
     right: 70px;
   }
 
-  .background-switcher {
+  /* .background-switcher {
     top: 15px;
     right: 15px;
-  }
+  } */
 
   .mobile-nav-toggle {
     top: 15px;
@@ -872,8 +873,8 @@
   background: linear-gradient(135deg, #112240 0%, #1a2c4e 100%);
   padding: 2rem;
   border-radius: 15px;
-  border: 2px solid #64ffda;
-  box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+  border: 2px solid #f87171;
+  box-shadow: 0 10px 30px rgba(248, 113, 113, 0.1);
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -886,7 +887,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(248, 113, 113, 0.05), transparent);
   animation: shine 4s infinite;
 }
 
@@ -898,8 +899,8 @@
 
 .footer-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(100, 255, 218, 0.2);
-  border-color: #7fffd4;
+  box-shadow: 0 15px 40px rgba(248, 113, 113, 0.2);
+  border-color: #fca5a5;
 }
 
 .footer-card p {
@@ -911,7 +912,7 @@
 }
 
 .footer-card p:first-child {
-  color: #64ffda;
+  color: #f87171;
   font-weight: 600;
   font-size: 1.2em;
   margin-bottom: 1rem;
