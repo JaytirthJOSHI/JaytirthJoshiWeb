@@ -1,19 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.99e5eac3.css",
-    "main.js": "/static/js/main.1b9f24c9.js",
+    "main.css": "/static/css/main.51c3629d.css",
+    "main.js": "/static/js/main.d2a7bd2b.js",
     "static/js/453.1741815e.chunk.js": "/static/js/453.1741815e.chunk.js",
     "static/js/38.a4950af4.chunk.js": "/static/js/38.a4950af4.chunk.js",
-    "static/media/jaytirth-joshi-casual-portrait.jpeg": "/static/media/jaytirth-joshi-casual-portrait.51282ab4c6ff7e1cdae8.jpeg",
-    "static/media/jaytirth-joshi-professional-headshot.png": "/static/media/jaytirth-joshi-professional-headshot.6f9c6bb32d2cc6e9d15c.png",
     "index.html": "/index.html",
-    "main.99e5eac3.css.map": "/static/css/main.99e5eac3.css.map",
-    "main.1b9f24c9.js.map": "/static/js/main.1b9f24c9.js.map",
+    "main.51c3629d.css.map": "/static/css/main.51c3629d.css.map",
+    "main.d2a7bd2b.js.map": "/static/js/main.d2a7bd2b.js.map",
     "453.1741815e.chunk.js.map": "/static/js/453.1741815e.chunk.js.map",
     "38.a4950af4.chunk.js.map": "/static/js/38.a4950af4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99e5eac3.css",
-    "static/js/main.1b9f24c9.js"
+    "static/css/main.51c3629d.css",
+    "static/js/main.d2a7bd2b.js"
   ]
 }
