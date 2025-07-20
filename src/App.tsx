@@ -1,13 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PortfolioPage from './pages/PortfolioPage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import ContactPage from './pages/ContactPage';
+import ChatPage from './pages/ChatPage';
+import PatentAccessPage from './pages/PatentAccessPage';
+import PatentSummaryPage from './pages/PatentSummaryPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import TermsAndConditionsPage from './pages/TermsAndConditionsPage';
+// import ApiDataPage from './pages/ApiDataPage';
+// import BookPage from './pages/BookPage';
 import './App.css';
+import AppWithSuspense from './pages/HomePage';
+import TravelMapPage from './pages/TravelMapPage';
 import SEO from './components/SEO';
 import GoogleAnalytics from './components/GoogleAnalytics';
 import PerformanceMonitor from './components/PerformanceMonitor';
 import BackToTop from './components/BackToTop';
 import Navbar from './components/Navbar';
 import AIAssistant from './components/AIAssistant';
+import AIShowcasePage from './pages/AIShowcasePage';
+import MeowLangPage from './pages/MeowLangPage';
 import { ThemeProvider } from './contexts/ThemeContext';
+import NotFoundPage from './pages/NotFoundPage';
+import CookiesPage from './pages/CookiesPage';
 
 // Error Boundary Component
 class ErrorBoundary extends React.Component<
@@ -72,21 +88,39 @@ class ErrorBoundary extends React.Component<
 
 
 
-// Simple Test Component
-const TestComponent = () => (
-  <div style={{
+// Loading Component
+const LoadingSpinner = () => (
+  <div 
+    role="status"
+    aria-live="polite"
+    aria-label="Loading content"
+    style={{ 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    height: '100vh',
     backgroundColor: '#0a192f',
-    color: '#64ffda',
-    padding: '2rem',
-    textAlign: 'center',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }}>
-    <h1>React App is Loading!</h1>
-    <p>If you can see this, React is working.</p>
+    color: '#64ffda'
+    }}
+  >
+    <div 
+      aria-hidden="true"
+      style={{
+      width: '50px',
+      height: '50px',
+      border: '3px solid #64ffda',
+      borderTop: '3px solid transparent',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite'
+      }}
+    ></div>
+    <span className="sr-only">Loading...</span>
+    <style>{`
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `}</style>
   </div>
 );
 
@@ -94,8 +128,7 @@ const App: React.FC = () => {
   // Replace with your actual Google Analytics Measurement ID
   const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
 
-  // Add console logging for debugging
-  console.log('App component loading...');
+
 
   return (
     <ErrorBoundary>
@@ -109,7 +142,27 @@ const App: React.FC = () => {
           </a>
           <Navbar />
           <main id="main-content" className="container" role="main" aria-label="Main content">
-            <TestComponent />
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes>
+                <Route path="/" element={<AppWithSuspense />} />
+                <Route path="/portfolio" element={<PortfolioPage />}>
+                  <Route path=":projectId" element={<ProjectDetailPage />} />
+                </Route>
+                <Route path="/contact" element={<ContactPage />} />
+                <Route path="/chat" element={<ChatPage />} />
+                <Route path="/ai-showcase" element={<AIShowcasePage />} />
+                <Route path="/meowlang" element={<MeowLangPage />} />
+                {/* <Route path="/api-data" element={<ApiDataPage />} /> */}
+                {/* <Route path="/book" element={<BookPage />} /> */}
+                <Route path="/patent-access" element={<PatentAccessPage />} />
+                <Route path="/patent-summary" element={<PatentSummaryPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditionsPage />} />
+                <Route path="/travel-map" element={<TravelMapPage />} />
+                <Route path="/cookies" element={<CookiesPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </Suspense>
           </main>
           <BackToTop />
           <AIAssistant />

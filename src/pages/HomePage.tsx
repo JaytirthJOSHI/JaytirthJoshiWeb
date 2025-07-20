@@ -18,8 +18,7 @@ import profileSuitImage from '../assets/Images/jaytirth-joshi-professional-heads
 import profileCasualImage from '../assets/Images/jaytirth-joshi-casual-portrait.jpeg';
 // import TravelMap from '../components/TravelMap'; // Temporarily removed
 
-// Add console logging for debugging
-console.log('HomePage component loading...');
+
 
 // DNA Helix theme - the chosen background
 // Other themes commented out since we're only using DNA 
