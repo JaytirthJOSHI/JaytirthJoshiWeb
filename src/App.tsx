@@ -125,8 +125,8 @@ const LoadingSpinner = () => (
 );
 
 const App: React.FC = () => {
-  // Replace with your actual Google Analytics Measurement ID
-  const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
+  // Google Analytics Measurement ID
+  const GA_MEASUREMENT_ID = process.env.REACT_APP_GA_MEASUREMENT_ID || 'G-W7V2T76N7X';
 
 
 
